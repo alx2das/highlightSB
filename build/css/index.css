@@ -1,0 +1,14 @@
+/*!
+ * highlightSB v1.0.0
+ * https://github.com/alx2das/highlight-swiftbook
+ *
+ * This library was developed specifically for https://swiftbook.ru/.
+ * Author Aleksandr Buylov (alx2das@gmail.com).
+ */
+/*!
+  Theme: Github
+  Author: Defman21
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{background:#fff;color:#333}.hljs ::selection,.hljs::selection{background-color:#c8c8fa;color:#333}.hljs-comment{color:#969896}.hljs-tag{color:#e8e8e8}.hljs-operator,.hljs-punctuation,.hljs-subst{color:#333}.hljs-operator{opacity:.7}.hljs-bullet,.hljs-deletion,.hljs-name,.hljs-selector-tag,.hljs-template-variable,.hljs-variable{color:#ed6a43}.hljs-attr,.hljs-link,.hljs-literal,.hljs-number,.hljs-symbol,.hljs-variable.constant_{color:#0086b3}.hljs-class .hljs-title,.hljs-strong,.hljs-title,.hljs-title.class_{color:#795da3}.hljs-strong{font-weight:700}.hljs-addition,.hljs-built_in,.hljs-code,.hljs-doctag,.hljs-keyword.hljs-atrule,.hljs-quote,.hljs-regexp,.hljs-string,.hljs-title.class_.inherited__{color:#183691}.hljs-attribute,.hljs-function .hljs-title,.hljs-section,.hljs-title.function_,.ruby .hljs-property{color:#795da3}.diff .hljs-meta,.hljs-keyword,.hljs-template-tag,.hljs-type{color:#a71d5d}.hljs-emphasis{color:#a71d5d;font-style:italic}.hljs-meta,.hljs-meta .hljs-keyword,.hljs-meta .hljs-string{color:#333}.hljs-meta .hljs-keyword,.hljs-meta-keyword{font-weight:700}div.hljs-swiftbook{background-color:#f2f4f5;border-radius:16px;font-size:14px;line-height:22px;overflow:hidden}div.hljs-swiftbook .sb-filename{color:#a7adbc;font-size:16px;font-weight:400;margin:0;padding:12px 15px 20px 20px}div.hljs-swiftbook pre{margin:0;padding:0 0 20px}div.hljs-swiftbook .eee{display:grid;overflow:auto}div.hljs-swiftbook .sb-container{display:flex;flex-shrink:0;padding:0 15px}div.hljs-swiftbook .sb-container._marker{background:rgba(32,93,212,.08);border-left:4px solid #205dd4;padding-left:11px}div.hljs-swiftbook .sb-container .sb-number{color:#6e6e73;min-width:20px;text-align:right;-webkit-user-select:none;-moz-user-select:none;user-select:none}div.hljs-swiftbook .sb-container .sb-content{padding-left:15px}.hljs-attribute,.hljs-doctag,.hljs-keyword,.hljs-meta .hljs-keyword,.hljs-name,.hljs-selector-tag{font-weight:400!important}

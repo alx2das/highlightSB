@@ -1,0 +1,50 @@
+{
+	"name": "highlightSB",
+	"version": "1.0.0",
+	"description": "",
+	"main": "build/index.js",
+	"types": "build/index.d.ts",
+	"author": "Aleksandr Buylov <alx2das@gmail.com> (alx2das@gmail.com)",
+	"homepage": "https://github.com/alx2das/highlight-swiftbook",
+	"scripts": {
+		"start": "webpack serve --config webpack.config.demo.js",
+		"build": "webpack && tsc",
+		"prepare": "npm run build"
+	},
+	"dependencies": {
+		"highlight.js": "^11.5.1"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.17.10",
+		"@babel/core": "^7.18.5",
+		"@babel/plugin-transform-typescript": "^7.18.4",
+		"@babel/polyfill": "^7.12.1",
+		"@babel/preset-env": "^7.18.2",
+		"@typescript-eslint/eslint-plugin": "^4.32.0",
+		"@typescript-eslint/parser": "^4.33.0",
+		"babel-eslint": "^10.1.0",
+		"babel-loader": "^8.2.5",
+		"babel-preset-minify": "^0.5.2",
+		"css-loader": "^6.7.1",
+		"eslint": "^7.32.0",
+		"file-loader": "^6.2.0",
+		"html-webpack-plugin": "^5.5.0",
+		"mini-css-extract-plugin": "^2.6.1",
+		"optimize-css-assets-webpack-plugin": "^6.0.1",
+		"prettier": "^2.7.1",
+		"prettier-webpack-plugin": "^1.2.0",
+		"style-loader": "^3.3.1",
+		"typescript": "^4.7.4",
+		"url-loader": "^4.1.1",
+		"webpack": "^5.73.0",
+		"webpack-cli": "^4.10.0",
+		"webpack-dev-server": "4.9.2"
+	},
+	"license": "MIT",
+	"keywords": [
+		"library",
+		"highlight",
+		"highlight-line-numbers",
+		"swiftbook.ru"
+	]
+}
