@@ -1,10 +1,11 @@
-import "highlight.js/styles/base16/github.css";
-import "./index.css";
+import "./index.sass";
 declare type TText = string | [string, string | undefined];
 declare type TOptions = {
-    filename?: string;
     startLine?: number;
     markers?: number[];
 };
-declare function highlightSB(text: TText, options?: TOptions): string;
-export default highlightSB;
+export declare function create(text: TText, options?: TOptions): string;
+export declare function createNumbers(text: string, { startLine, markers }?: TOptions): string;
+export declare function searchMarkers(text: string[]): number[];
+export declare function format(temp: string, args?: string[]): string;
+export {};

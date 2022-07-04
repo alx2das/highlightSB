@@ -1,19 +1,17 @@
 {
-	"name": "highlightSB",
+	"name": "highlightsb",
 	"version": "1.0.0",
 	"description": "",
 	"main": "build/index.js",
 	"types": "build/index.d.ts",
 	"author": "Aleksandr Buylov <alx2das@gmail.com> (alx2das@gmail.com)",
-	"homepage": "https://github.com/alx2das/highlight-swiftbook",
+	"homepage": "https://github.com/alx2das/swiftbook-highlight",
 	"scripts": {
 		"start": "webpack serve --config webpack.config.demo.js",
 		"build": "webpack && tsc",
 		"prepare": "npm run build"
 	},
-	"dependencies": {
-		"highlight.js": "^11.5.1"
-	},
+	"dependencies": {},
 	"devDependencies": {
 		"@babel/cli": "^7.17.10",
 		"@babel/core": "^7.18.5",
@@ -33,6 +31,8 @@
 		"optimize-css-assets-webpack-plugin": "^6.0.1",
 		"prettier": "^2.7.1",
 		"prettier-webpack-plugin": "^1.2.0",
+		"sass": "^1.53.0",
+		"sass-loader": "^13.0.2",
 		"style-loader": "^3.3.1",
 		"typescript": "^4.7.4",
 		"url-loader": "^4.1.1",
@@ -40,7 +40,6 @@
 		"webpack-cli": "^4.10.0",
 		"webpack-dev-server": "4.9.2"
 	},
-	"license": "MIT",
 	"keywords": [
 		"library",
 		"highlight",

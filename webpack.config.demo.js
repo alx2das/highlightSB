@@ -1,23 +1,27 @@
 const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+const { name } = require("./package.json");
+const config = require("./webpack.config");
+
 
 module.exports = {
+    ...config,
+
     mode: "development",
     devtool: "cheap-module-source-map",
-    entry: "./src/demo/index.ts",
-    output: {
-        filename: "index.js"
-    },
+
     optimization: {
         minimize: false,
     },
+
     devServer: {
         open: true,
         hot: true,
         host: "localhost",
         port: 9000
     },
+
     module: {
         rules: [
             {
@@ -28,26 +32,21 @@ module.exports = {
                 }
             },
             {
-                test: /\.(sa|sc|c)ss$/,
+                test: /\.(sc|sa|c)ss$/i,
                 use: [
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: "css-loader",
-                        options: { sourceMap: true }
-                    }
-                ]
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader",
+                ],
             }
         ]
     },
+
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: "css/index.css"
-        }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, "src/demo/index.html")
+            minify: false,
+            chunks: [name, "demo"],
+            template: path.resolve(__dirname, "src/demo/index.html"),
         })
-    ],
-    resolve: {
-        extensions: [ ".ts", ".js", ".json" ]
-    }
+    ]
 };

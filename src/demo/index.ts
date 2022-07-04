@@ -1,13 +1,8 @@
-import { first, second } from "./example_content";
-import highlightSB from "../lib";
+import data_example from "./data";
+import "./index.sass";
 
-const html = highlightSB(
-    [ first, second ],
-    {
-    filename: "ReminderListDataSource.swift"
-});
-
-document.querySelector("body").innerHTML +=
-    `<div style="width: 700px; padding: 50px">${html}</div>`;
-
-
+export const asyncQueryExample = () => {
+	return new Promise((resolve) => {
+		setTimeout(() => resolve(data_example[0].steps[0].code), 0);
+	});
+};

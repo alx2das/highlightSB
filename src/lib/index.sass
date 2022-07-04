@@ -1,0 +1,29 @@
+$marker-background: rgba(32, 93, 212, 0.08)
+$marker-border-color: #205dd4
+
+
+.highlightsb
+	display: grid
+	overflow-y: hidden
+
+	pre
+		padding: 0 0 30px 0
+		margin: 0
+
+	span.hlsb-line
+		display: flex
+		flex-shrink: 0
+		padding: 0 15px 0 15px
+
+		&._marker
+			background: $marker-background
+			border-left: 4px solid $marker-border-color
+			padding-left: 11px
+
+		.hlsb-number
+			min-width: 20px
+			text-align: right
+			user-select: none
+
+		.hlsb-content
+			padding-left: 20px
