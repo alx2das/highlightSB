@@ -1,49 +1,62 @@
 {
-	"name": "highlightsb",
-	"version": "1.0.0",
-	"description": "",
-	"main": "build/index.js",
-	"types": "build/index.d.ts",
-	"author": "Aleksandr Buylov <alx2das@gmail.com> (alx2das@gmail.com)",
-	"homepage": "https://github.com/alx2das/swiftbook-highlight",
-	"scripts": {
-		"start": "webpack serve --config webpack.config.demo.js",
-		"build": "webpack && tsc",
-		"prepare": "npm run build"
-	},
-	"dependencies": {},
-	"devDependencies": {
-		"@babel/cli": "^7.17.10",
-		"@babel/core": "^7.18.5",
-		"@babel/plugin-transform-typescript": "^7.18.4",
-		"@babel/polyfill": "^7.12.1",
-		"@babel/preset-env": "^7.18.2",
-		"@typescript-eslint/eslint-plugin": "^4.32.0",
-		"@typescript-eslint/parser": "^4.33.0",
-		"babel-eslint": "^10.1.0",
-		"babel-loader": "^8.2.5",
-		"babel-preset-minify": "^0.5.2",
-		"css-loader": "^6.7.1",
-		"eslint": "^7.32.0",
-		"file-loader": "^6.2.0",
-		"html-webpack-plugin": "^5.5.0",
-		"mini-css-extract-plugin": "^2.6.1",
-		"optimize-css-assets-webpack-plugin": "^6.0.1",
-		"prettier": "^2.7.1",
-		"prettier-webpack-plugin": "^1.2.0",
-		"sass": "^1.53.0",
-		"sass-loader": "^13.0.2",
-		"style-loader": "^3.3.1",
-		"typescript": "^4.7.4",
-		"url-loader": "^4.1.1",
-		"webpack": "^5.73.0",
-		"webpack-cli": "^4.10.0",
-		"webpack-dev-server": "4.9.2"
-	},
-	"keywords": [
-		"library",
-		"highlight",
-		"highlight-line-numbers",
-		"swiftbook.ru"
-	]
+  "name": "swiftbook",
+  "version": "1.0.0",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf /dist && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
+    "start": "start-storybook -p 6006",
+    "demo": "build-storybook -o demo/",
+    "prettier": "prettier --write {src,stories}/**/*.*"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "diff": "^5.1.0",
+    "highlight.js": "^11.5.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-interactions": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
+    "@storybook/builder-webpack4": "^6.5.9",
+    "@storybook/manager-webpack4": "^6.5.9",
+    "@storybook/react": "^6.5.9",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/diff": "^5.0.2",
+    "@types/node": "^18.0.3",
+    "@types/react": "^17.0.47",
+    "@types/react-dom": "^17.0.17",
+    "babel-loader": "^8.2.5",
+    "eslint-config-prettier": "^8.5.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.7.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "prettier"
+    ]
+  },
+  "lint-staged": {
+    "{src,stories}/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
+  }
 }
