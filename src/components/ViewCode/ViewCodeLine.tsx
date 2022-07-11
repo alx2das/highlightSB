@@ -20,7 +20,10 @@ const ViewCodeLine: FC<ViewCodeLineProps> = ({ line, number, marker }) => (
 		})}
 	>
 		<span className="vc-line-number">{number}</span>
-		<span className="vc-line-content" dangerouslySetInnerHTML={{ __html: line }} />
+		<span
+			className="vc-line-content"
+			dangerouslySetInnerHTML={{ __html: line }}
+		/>
 	</span>
 );
 

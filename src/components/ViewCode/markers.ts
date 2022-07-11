@@ -32,7 +32,10 @@ const createMarkers = (props: CreateMarkerProps) => {
 	return markers;
 };
 
-export const searchMarkers = (prevValue?: string, newValue?: string): Markers => {
+export const searchMarkers = (
+	prevValue?: string,
+	newValue?: string
+): Markers => {
 	if (!prevValue || !newValue) {
 		return {};
 	}

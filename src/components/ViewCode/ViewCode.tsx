@@ -24,7 +24,12 @@ const ViewCode: FC<ViewCodeProps> = (props) => {
 			<pre>
 				<code>
 					{codeHTML.map((line, index) => (
-						<ViewCodeLine key={line + index} line={line} number={number + index} marker={markers[index] || {}} />
+						<ViewCodeLine
+							key={line + index}
+							line={line}
+							number={number + index}
+							marker={markers[index] || {}}
+						/>
 					))}
 				</code>
 			</pre>
