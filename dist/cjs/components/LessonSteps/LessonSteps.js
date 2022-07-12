@@ -7,7 +7,7 @@ exports.LessonSteps = void 0;
 const react_1 = __importDefault(require("react"));
 const LessonSteps = (props) => {
     const {} = props;
-    return (react_1.default.createElement("div", null, "LessonSteps"));
+    return react_1.default.createElement("div", null, "LessonSteps");
 };
 exports.LessonSteps = LessonSteps;
 //# sourceMappingURL=LessonSteps.js.map

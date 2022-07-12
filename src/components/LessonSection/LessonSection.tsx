@@ -1,18 +1,9 @@
-import React, { FC } from "react"
+import React, { FC } from "react";
 
-
-export interface LessonSectionProps {
-
-}
+export interface LessonSectionProps {}
 
 export const LessonSection: FC<LessonSectionProps> = (props) => {
-    const {
+	const {} = props;
 
-    } = props;
-
-    return (
-        <div>
-            LessonSection
-        </div>
-    );
+	return <div>LessonSection</div>;
 };

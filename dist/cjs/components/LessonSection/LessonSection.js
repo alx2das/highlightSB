@@ -7,7 +7,7 @@ exports.LessonSection = void 0;
 const react_1 = __importDefault(require("react"));
 const LessonSection = (props) => {
     const {} = props;
-    return (react_1.default.createElement("div", null, "LessonSection"));
+    return react_1.default.createElement("div", null, "LessonSection");
 };
 exports.LessonSection = LessonSection;
 //# sourceMappingURL=LessonSection.js.map

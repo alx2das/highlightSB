@@ -41,3 +41,66 @@ export const nextValue = `{
     "react-dom": "^18.2.0",
     "typescript": "^4.7.4"
 }`;
+
+export const query_sections = {
+	lecture_sections: [
+		{
+			id: 1,
+			title: "Секция 1",
+			description: "Описание секции 1",
+			image_video_url: "https://i.ya-webdesign.com/images/cellphone-png-2.png",
+			lecture_steps: [
+				{
+					id: 1,
+					name: "Название шага 1. Секция 1.",
+					description: "Описание шага 1. Секция 1.",
+					comment: "Коментарий",
+					code_title: "НазваниеФайлаШаг1.swift",
+					code: prevValue,
+					position: 1,
+					image_video_url:
+						"https://www.kindpng.com/picc/m/116-1160843_png-file-svg-download-icon-telephone-png-transparent.png",
+				},
+				{
+					id: 2,
+					name: "Название шага 2. Секция 1.",
+					description: "Описание шага 2. Секция 1.",
+					comment: "Коментарий",
+					code_title: "НазваниеФайлаШаг2.swift",
+					code: nextValue,
+					position: 1,
+					image_video_url: null,
+				},
+			],
+		},
+		{
+			id: 2,
+			title: "Секция 2",
+			description: "Описание секции 2",
+			image_video_url: "https://i.ya-webdesign.com/images/cellphone-png-2.png",
+			lecture_steps: [
+				{
+					id: 3,
+					name: "Название шага 1. Секция 2.",
+					description: "Описание шага 1. Секция 2.",
+					comment: "Коментарий",
+					code_title: "НазваниеФайлаШаг1-2.swift",
+					code: prevValue,
+					position: 1,
+					image_video_url:
+						"https://www.kindpng.com/picc/m/116-1160843_png-file-svg-download-icon-telephone-png-transparent.png",
+				},
+				{
+					id: 4,
+					name: "Название шага 2. Секция 2.",
+					description: "Описание шага 2. Секция 2.",
+					comment: "Коментарий",
+					code_title: "НазваниеФайлаШаг2-2.swift",
+					code: nextValue,
+					position: 1,
+					image_video_url: null,
+				},
+			],
+		},
+	],
+};
