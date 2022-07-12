@@ -1,16 +1,14 @@
-import React, { memo } from "react";
-import { searchMarkers } from "./markers";
-import { lineNumbers } from "./lines";
+import React from "react";
+import { searchMarkers, lineNumbering } from "./helpers";
 import ViewCodeLine from "./ViewCodeLine";
-import "./ViewCode.css";
+import "./style.css";
 const ViewCode = (props) => {
-    const { prevValue, value, startNumber } = props;
-    const number = (startNumber ? startNumber : 1) || 1;
-    const markers = searchMarkers(prevValue, value);
-    const codeHTML = lineNumbers(value);
+    const { nextValue, prevValue = "", startNumber = 1, hideNumber = false, } = props;
+    const markers = searchMarkers(prevValue, nextValue);
+    const htmlLines = lineNumbering(nextValue);
     return (React.createElement("div", { className: "view-code" },
         React.createElement("pre", null,
-            React.createElement("code", null, codeHTML.map((line, index) => (React.createElement(ViewCodeLine, { key: line + index, line: line, number: number + index, marker: markers[index] || {} })))))));
+            React.createElement("code", null, htmlLines.map((line, index) => (React.createElement(ViewCodeLine, { key: `${index}-line`, content: line, number: startNumber + index, marker: markers[index] || {}, hideNumber: Boolean(hideNumber) })))))));
 };
-export default memo(ViewCode);
+export default ViewCode;
 //# sourceMappingURL=ViewCode.js.map

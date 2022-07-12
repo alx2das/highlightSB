@@ -1,8 +1,8 @@
 export type Marker = {
-    added?: boolean;
-    removed?: boolean;
+	added?: boolean;
+	removed?: boolean;
 };
 
 export type Markers = {
-    [line: number]: Marker | undefined
+	[line: number]: Marker | undefined;
 };

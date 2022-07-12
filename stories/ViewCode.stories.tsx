@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { ViewCode } from "../src";
 import { prevValue, nextValue } from "./data";
@@ -14,12 +14,12 @@ export default {
 	},
 } as ComponentMeta<typeof ViewCode>;
 
-const Template: ComponentStory<typeof ViewCode> = args => (
+const Template: ComponentStory<typeof ViewCode> = (args) => (
 	<ViewCode {...args} />
 );
 
 export const Primary = Template.bind({});
 Primary.args = {
 	prevValue,
-	nextValue
+	nextValue,
 };

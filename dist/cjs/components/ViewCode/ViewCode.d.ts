@@ -1,9 +1,10 @@
-import React from "react";
-import "./ViewCode.css";
+import { FC } from "react";
+import "./style.css";
 export interface ViewCodeProps {
-    prevValue: string;
-    value: string;
+    nextValue: string;
+    prevValue?: string;
     startNumber?: number;
+    hideNumber?: string;
 }
-declare const _default: React.NamedExoticComponent<ViewCodeProps>;
-export default _default;
+declare const ViewCode: FC<ViewCodeProps>;
+export default ViewCode;
