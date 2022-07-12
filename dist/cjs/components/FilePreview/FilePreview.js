@@ -14,8 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.FilePreview = void 0;
 const react_1 = __importDefault(require("react"));
-const ViewCode_1 = __importDefault(require("../ViewCode"));
+const ViewCode_1 = require("../ViewCode");
 require("./style.css");
 const FilePreview = (props) => {
     const { fileName, image } = props, otherProps = __rest(props, ["fileName", "image"]);
@@ -23,7 +24,7 @@ const FilePreview = (props) => {
         fileName && react_1.default.createElement("div", { className: "steps-preview__name" }, fileName),
         image && react_1.default.createElement("div", { className: "steps-preview__image" }, image),
         react_1.default.createElement("div", { className: "steps-preview__code" },
-            react_1.default.createElement(ViewCode_1.default, Object.assign({}, otherProps)))));
+            react_1.default.createElement(ViewCode_1.ViewCode, Object.assign({}, otherProps)))));
 };
-exports.default = FilePreview;
+exports.FilePreview = FilePreview;
 //# sourceMappingURL=FilePreview.js.map

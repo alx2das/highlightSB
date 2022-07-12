@@ -6,5 +6,4 @@ export interface ViewCodeProps {
     startNumber?: number;
     hideNumber?: string;
 }
-declare const ViewCode: FC<ViewCodeProps>;
-export default ViewCode;
+export declare const ViewCode: FC<ViewCodeProps>;

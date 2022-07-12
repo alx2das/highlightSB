@@ -1,1 +1,1 @@
-export { default, ViewCodeProps } from "./ViewCode";
+export * from "./ViewCode";

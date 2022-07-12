@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ViewCode = void 0;
 const react_1 = __importDefault(require("react"));
 const helpers_1 = require("./helpers");
 const ViewCodeLine_1 = __importDefault(require("./ViewCodeLine"));
@@ -15,5 +16,5 @@ const ViewCode = (props) => {
         react_1.default.createElement("pre", null,
             react_1.default.createElement("code", null, htmlLines.map((line, index) => (react_1.default.createElement(ViewCodeLine_1.default, { key: `${index}-line`, content: line, number: startNumber + index, marker: markers[index] || {}, hideNumber: Boolean(hideNumber) })))))));
 };
-exports.default = ViewCode;
+exports.ViewCode = ViewCode;
 //# sourceMappingURL=ViewCode.js.map

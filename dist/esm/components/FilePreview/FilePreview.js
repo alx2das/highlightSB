@@ -10,9 +10,9 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import React from "react";
-import ViewCode from "../ViewCode";
+import { ViewCode } from "../ViewCode";
 import "./style.css";
-const FilePreview = (props) => {
+export const FilePreview = (props) => {
     const { fileName, image } = props, otherProps = __rest(props, ["fileName", "image"]);
     return (React.createElement("div", { className: "steps-preview", id: "preview-file" },
         fileName && React.createElement("div", { className: "steps-preview__name" }, fileName),
@@ -20,5 +20,4 @@ const FilePreview = (props) => {
         React.createElement("div", { className: "steps-preview__code" },
             React.createElement(ViewCode, Object.assign({}, otherProps)))));
 };
-export default FilePreview;
 //# sourceMappingURL=FilePreview.js.map

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import ViewCode, { ViewCodeProps } from "../ViewCode";
+import { ViewCode, ViewCodeProps } from "../ViewCode";
 import "./style.css";
 
 export interface FilePreviewProps extends ViewCodeProps {

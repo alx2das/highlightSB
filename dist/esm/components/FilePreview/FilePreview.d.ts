@@ -9,5 +9,4 @@ export interface FilePreviewProps extends ViewCodeProps {
     startNumber?: number;
     hideNumber?: string;
 }
-declare const FilePreview: FC<FilePreviewProps>;
-export default FilePreview;
+export declare const FilePreview: FC<FilePreviewProps>;

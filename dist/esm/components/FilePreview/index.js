@@ -1,2 +1,2 @@
-export { default } from "./FilePreview";
+export * from "./FilePreview";
 //# sourceMappingURL=index.js.map
