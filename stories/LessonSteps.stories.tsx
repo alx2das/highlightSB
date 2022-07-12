@@ -18,5 +18,5 @@ export const Primary = Template.bind({});
 const section = query_sections.lecture_sections[0];
 
 Primary.args = {
-	steps: section.lecture_steps
+	steps: section.lecture_steps,
 };

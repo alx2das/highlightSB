@@ -10,7 +10,7 @@ export default {
 		title: { control: "text" },
 		subtitle: { control: "text" },
 		description: { control: "text" },
-		imageUrl: { control: "text" }
+		imageUrl: { control: "text" },
 	},
 } as ComponentMeta<typeof LessonSection>;
 
@@ -27,5 +27,5 @@ Primary.args = {
 	subtitle: section.title,
 	description: section.description,
 	imageUrl: section.image_video_url,
-	steps: section.lecture_steps
+	steps: section.lecture_steps,
 };

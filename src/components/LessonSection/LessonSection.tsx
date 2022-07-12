@@ -3,7 +3,6 @@ import React, { FC } from "react";
 import { LessonSteps, Step } from "../LessonSteps";
 import "./style.css";
 
-
 export interface LessonSectionProps {
 	title: string;
 	subtitle: string;
@@ -13,13 +12,7 @@ export interface LessonSectionProps {
 }
 
 export const LessonSection: FC<LessonSectionProps> = (props) => {
-	const {
-		title,
-		subtitle,
-		description,
-		image_video_url,
-		steps
-	} = props;
+	const { title, subtitle, description, image_video_url, steps } = props;
 
 	return (
 		<>
