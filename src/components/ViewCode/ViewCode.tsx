@@ -1,40 +1,46 @@
-import React, { memo, FC } from "react";
+import React, { FC } from "react";
 
-import { searchMarkers } from "./markers";
-import { lineNumbers } from "./lines";
+
+import { searchMarkers, lineNumbering } from "./helpers";
 import ViewCodeLine from "./ViewCodeLine";
+import "./style.css";
 
-import "./ViewCode.css";
 
-export interface ViewCodeProps {
-	prevValue: string;
-	value: string;
-	startNumber?: number;
+interface Props {
+    nextValue: string;
+    prevValue?: string;
+    startNumber?: number;
+    hideNumber?: string;
 }
 
-const ViewCode: FC<ViewCodeProps> = (props) => {
-	const { prevValue, value, startNumber } = props;
+const ViewCode: FC<Props> = props => {
+    const {
+        nextValue,
+        prevValue = "",
+        startNumber = 1,
+        hideNumber = false
+    } = props;
 
-	const number = (startNumber ? startNumber : 1) || 1;
-	const markers = searchMarkers(prevValue, value);
-	const codeHTML = lineNumbers(value);
+    const markers = searchMarkers(prevValue, nextValue);
+    const htmlLines = lineNumbering(nextValue);
 
-	return (
-		<div className="view-code">
-			<pre>
-				<code>
-					{codeHTML.map((line, index) => (
-						<ViewCodeLine
-							key={line + index}
-							line={line}
-							number={number + index}
-							marker={markers[index] || {}}
-						/>
-					))}
-				</code>
-			</pre>
-		</div>
-	);
+    return (
+        <div className="view-code">
+            <pre>
+                <code>
+                    {htmlLines.map((line, index) => (
+                        <ViewCodeLine
+                            key={`${index}-line`}
+                            content={line}
+                            number={startNumber + index}
+                            marker={markers[index] || {}}
+                            hideNumber={Boolean(hideNumber)}
+                        />
+                    ))}
+                </code>
+            </pre>
+        </div>
+    );
 };
 
-export default memo(ViewCode);
+export default ViewCode;
