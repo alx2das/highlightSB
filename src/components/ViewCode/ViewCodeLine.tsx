@@ -12,12 +12,12 @@ interface Props {
 
 const ViewCodeLine: FC<Props> = ({ content, number, marker, hideNumber }) => (
 	<span
-		data-line={number}
 		className={cn("vc-line", {
 			_added: marker.added && !marker.removed,
 			_removed: !marker.added && marker.removed,
 			_update: marker.added && marker.removed,
 		})}
+		data-line={number}
 	>
 		{!hideNumber && <span className="vc-line-number">{number}</span>}
 		<span
