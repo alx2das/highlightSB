@@ -1,4 +1,5 @@
 import React from "react";
+import "highlight.js/styles/github.css";
 import { searchMarkers, lineNumbering } from "./helpers";
 import ViewCodeLine from "./ViewCodeLine";
 import "./style.css";

@@ -1,0 +1,26 @@
+@import url("fonts.css");
+@import url("reset.css");
+
+/*  VARS
+	-------------------------------------------------- */
+:root {
+	--text-color: rgba(49, 62, 98, 0.8);
+}
+
+/*  STYLES
+	-------------------------------------------------- */
+body {
+	padding: 45px;
+	font-family: "Gotham Pro";
+	color: var(--text-color);
+	background: #f2f4f5;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.layout {
+	background: #fff;
+	border-radius: 20px;
+	padding: 80px 40px 40px;
+	max-width: 1100px;
+}

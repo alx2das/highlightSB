@@ -1,4 +1,5 @@
 import { FC } from "react";
+import "highlight.js/styles/github.css";
 import "./style.css";
 export interface ViewCodeProps {
     nextValue: string;

@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ViewCode = void 0;
 const react_1 = __importDefault(require("react"));
+require("highlight.js/styles/github.css");
 const helpers_1 = require("./helpers");
 const ViewCodeLine_1 = __importDefault(require("./ViewCodeLine"));
 require("./style.css");

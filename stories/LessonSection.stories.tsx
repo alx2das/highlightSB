@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { LessonSection } from "../src";
+import { Layout } from "./Layout";
 import { query_sections } from "./data";
 
 export default {
@@ -15,7 +16,9 @@ export default {
 } as ComponentMeta<typeof LessonSection>;
 
 const Template: ComponentStory<typeof LessonSection> = (args) => (
-	<LessonSection {...args} />
+	<Layout>
+		<LessonSection {...args} />
+	</Layout>
 );
 
 export const Primary = Template.bind({});

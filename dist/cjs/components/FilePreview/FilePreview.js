@@ -22,7 +22,8 @@ const FilePreview = (props) => {
     const { fileName, image } = props, otherProps = __rest(props, ["fileName", "image"]);
     return (react_1.default.createElement("div", { className: "steps-preview", id: "preview-file" },
         fileName && react_1.default.createElement("div", { className: "steps-preview__name" }, fileName),
-        image && react_1.default.createElement("div", { className: "steps-preview__image" }, image),
+        image && (react_1.default.createElement("div", { className: "steps-preview__image", style: { textAlign: "center" } },
+            react_1.default.createElement("img", { src: image, alt: fileName, style: { maxWidth: "60%" } }))),
         react_1.default.createElement("div", { className: "steps-preview__code" },
             react_1.default.createElement(ViewCode_1.ViewCode, Object.assign({}, otherProps)))));
 };
