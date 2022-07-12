@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import React, {useState, useMemo, FC} from "react";
 import cn from "classnames";
 
 import { FilePreview } from "../FilePreview";
@@ -14,13 +14,24 @@ export type Step = {
 };
 
 export interface LessonStepsProps {
+	activeStep?: number;
 	steps: Step[];
 }
 
 export const LessonSteps: FC<LessonStepsProps> = (props) => {
-	const { steps } = props;
+	const { activeStep = 0, steps } = props;
 
-	const [activeIndex] = useState(0);
+	const [active, setActive] = useState(activeStep);
+	const prevValue = useMemo(() => {
+		const selectStep = steps[active];
+		const prevStep = steps[active - 1] || {};
+
+		if (prevStep && prevStep.code_title === selectStep.code_title) {
+			return prevStep.code;
+		}
+
+		return "";
+	}, [steps, active]);
 
 	return (
 		<section className="page-section _steps">
@@ -28,9 +39,9 @@ export const LessonSteps: FC<LessonStepsProps> = (props) => {
 				{steps.map((step, index) => (
 					<div
 						key={`step-${index}`}
-						className={cn("steps-item", { _active: activeIndex === index })}
+						className={cn("steps-item", { _active: active === index })}
 					>
-						<div className="inner-block">
+						<div className="inner-block" onClick={() => setActive(index)}>
 							<h4 className="inner-title">{step.name}</h4>
 							{step.description && <div>{step.description}</div>}
 						</div>
@@ -42,10 +53,10 @@ export const LessonSteps: FC<LessonStepsProps> = (props) => {
 			</div>
 
 			<FilePreview
-				fileName={steps[1].code_title}
-				image={steps[0].image_video_url}
-				prevValue={steps[0].code}
-				nextValue={steps[1].code}
+				fileName={steps[active].code_title}
+				image={steps[active].image_video_url}
+				prevValue={prevValue}
+				nextValue={steps[active].code}
 			/>
 		</section>
 	);

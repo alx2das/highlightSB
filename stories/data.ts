@@ -42,7 +42,6 @@ export const nextValue = `import UIKit
 class ReminderListDataSource: NSObject {
     typealias ReminderCompletedAction = (Int) -> Void
     typealias ReminderDeletedAction = () -> Void
-    typealias RemindersChangedAction = () -> Void
 
     enum Filter: Int {
         case today
@@ -54,6 +53,8 @@ class ReminderListDataSource: NSObject {
             switch self {
             case .today:
                 return isInToday
+           	case .yesterday:
+                return isInYesterday
             case .future:
                 return (date > Date()) && !isInToday
             case .all:
@@ -91,36 +92,27 @@ export const query_sections = {
 					name: "Название шага 1. Секция 1.",
 					description: "Add a method named readReminder to the bottom of the extension in ReminderListDataSource.swift. The method accepts a string and a completion handler of type (EKReminder?) -> Void.",
 					comment: "Start by adding a method to fetch an individual reminder from the event store.",
-					code_title: "НазваниеФайлаШаг1.swift",
+					code_title: "НазваниеФайла_1.swift",
 					code: prevValue,
 					position: 1,
-					image_video_url:
-						"https://www.kindpng.com/picc/m/116-1160843_png-file-svg-download-icon-telephone-png-transparent.png",
+					image_video_url: null
 				},
 				{
 					id: 2,
 					name: "Название шага 2. Секция 1.",
 					description: "Описание шага 2. Секция 1.",
 					comment: "Коментарий",
-					code_title: "НазваниеФайлаШаг2.swift",
+					code_title: "НазваниеФайла_1.swift",
 					code: nextValue,
 					position: 1,
 					image_video_url: null,
 				},
-			],
-		},
-		{
-			id: 2,
-			title: "Секция 2",
-			description: "Описание секции 2",
-			image_video_url: "https://i.ya-webdesign.com/images/cellphone-png-2.png",
-			lecture_steps: [
 				{
 					id: 3,
 					name: "Название шага 1. Секция 2.",
 					description: "Описание шага 1. Секция 2.",
 					comment: "Коментарий",
-					code_title: "НазваниеФайлаШаг1-2.swift",
+					code_title: "НазваниеФайла_2.swift",
 					code: prevValue,
 					position: 1,
 					image_video_url:
@@ -131,12 +123,13 @@ export const query_sections = {
 					name: "Название шага 2. Секция 2.",
 					description: "Описание шага 2. Секция 2.",
 					comment: "Коментарий",
-					code_title: "НазваниеФайлаШаг2-2.swift",
+					code_title: "НазваниеФайла_2.swift",
 					code: nextValue,
 					position: 1,
-					image_video_url: null,
+					image_video_url:
+						"https://www.kindpng.com/picc/m/116-1160843_png-file-svg-download-icon-telephone-png-transparent.png",
 				},
 			],
-		},
+		}
 	],
 };

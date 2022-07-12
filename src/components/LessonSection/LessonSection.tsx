@@ -25,7 +25,7 @@ export const LessonSection: FC<LessonSectionProps> = (props) => {
 
 				{image_video_url && (
 					<div className="image">
-						<img src={image_video_url} alt={title} />
+						<img src={image_video_url}/>
 					</div>
 				)}
 			</section>
