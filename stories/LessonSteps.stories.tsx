@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { LessonSteps } from "../src";
+import { query_sections } from "./data";
 
 export default {
 	title: "LessonSteps",
@@ -13,4 +14,9 @@ const Template: ComponentStory<typeof LessonSteps> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+
+const section = query_sections.lecture_sections[0];
+
+Primary.args = {
+	steps: section.lecture_steps
+};

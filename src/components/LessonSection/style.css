@@ -1,0 +1,10 @@
+.info {
+    font-size: 18px;
+    line-height: 28px;
+}
+.info__order-name {
+    margin-bottom: 10px;
+}
+.info__title {
+    margin-bottom: 20px;
+}

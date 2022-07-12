@@ -46,8 +46,8 @@ export const query_sections = {
 	lecture_sections: [
 		{
 			id: 1,
-			title: "Секция 1",
-			description: "Описание секции 1",
+			title: "Load a Specific Reminder",
+			description: "Today represents reminders using its internal Reminder model. Before writing reminder data to the event store, you need to retrieve the corresponding EKReminder object. In this section, write a new method that retrieves an EKReminder object for a given identifier.",
 			image_video_url: "https://i.ya-webdesign.com/images/cellphone-png-2.png",
 			lecture_steps: [
 				{

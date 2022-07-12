@@ -9,7 +9,7 @@ export default {
 	argTypes: {
 		prevValue: { control: "text" },
 		nextValue: { control: "text" },
-		startNumber: { control: { type: "number", min: 1, max: 30 } },
+		startNumber: { control: { type: "number", min: 1 } },
 		hideNumber: { control: "boolean", defaultValue: false },
 	},
 } as ComponentMeta<typeof ViewCode>;
