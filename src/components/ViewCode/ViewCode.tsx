@@ -1,19 +1,18 @@
 import React, { FC } from "react";
 
-
 import { searchMarkers, lineNumbering } from "./helpers";
 import ViewCodeLine from "./ViewCodeLine";
 import "./style.css";
 
 
-interface Props {
+export interface ViewCodeProps {
     nextValue: string;
     prevValue?: string;
     startNumber?: number;
     hideNumber?: string;
 }
 
-const ViewCode: FC<Props> = props => {
+const ViewCode: FC<ViewCodeProps> = props => {
     const {
         nextValue,
         prevValue = "",
