@@ -32,6 +32,7 @@ export function searchMarkers(prev: string, next: string): Markers {
 	return markers;
 
 	// private ...
+
 	function create({ markers, type, number = 0, count = 0 }): Markers {
 		const _count = type === "removed" ? 1 : count;
 
