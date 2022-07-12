@@ -19,8 +19,8 @@ export const FilePreview: FC<FilePreviewProps> = (props) => {
 		<div className="steps-preview" id="preview-file">
 			{fileName && <div className="steps-preview__name">{fileName}</div>}
 			{image && (
-				<div className="steps-preview__image" >
-					<img src={image} alt={fileName}/>
+				<div className="steps-preview__image">
+					<img src={image} alt={fileName} />
 				</div>
 			)}
 			<div className="steps-preview__code">

@@ -9,6 +9,7 @@ export declare type Step = {
     image_video_url: string;
 };
 export interface LessonStepsProps {
+    activeStep?: number;
     steps: Step[];
 }
 export declare const LessonSteps: FC<LessonStepsProps>;

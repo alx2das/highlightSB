@@ -16,7 +16,7 @@ const LessonSection = (props) => {
                 subtitle && react_1.default.createElement("h2", { className: "info__title" }, subtitle),
                 description && react_1.default.createElement("div", null, description)),
             image_video_url && (react_1.default.createElement("div", { className: "image" },
-                react_1.default.createElement("img", { src: image_video_url, alt: title })))),
+                react_1.default.createElement("img", { src: image_video_url })))),
         steps && react_1.default.createElement(LessonSteps_1.LessonSteps, { steps: steps })));
 };
 exports.LessonSection = LessonSection;

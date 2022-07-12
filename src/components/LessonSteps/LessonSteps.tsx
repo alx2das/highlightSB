@@ -1,4 +1,4 @@
-import React, {useState, useMemo, FC} from "react";
+import React, { useState, useMemo, FC } from "react";
 import cn from "classnames";
 
 import { FilePreview } from "../FilePreview";

@@ -10,7 +10,7 @@ export const LessonSection = (props) => {
                 subtitle && React.createElement("h2", { className: "info__title" }, subtitle),
                 description && React.createElement("div", null, description)),
             image_video_url && (React.createElement("div", { className: "image" },
-                React.createElement("img", { src: image_video_url, alt: title })))),
+                React.createElement("img", { src: image_video_url })))),
         steps && React.createElement(LessonSteps, { steps: steps })));
 };
 //# sourceMappingURL=LessonSection.js.map
