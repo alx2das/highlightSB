@@ -1,2 +1,4 @@
-export { default as FilePreview } from "./components/FilePreview";
-export { default as ViewCode } from "./components/ViewCode";
+export * from "./components/LessonSection";
+export * from "./components/LessonSteps";
+export * from "./components/FilePreview";
+export * from "./components/ViewCode";

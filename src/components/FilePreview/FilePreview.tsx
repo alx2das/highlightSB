@@ -12,7 +12,7 @@ export interface FilePreviewProps extends ViewCodeProps {
 	hideNumber?: string;
 }
 
-const FilePreview: FC<FilePreviewProps> = (props) => {
+export const FilePreview: FC<FilePreviewProps> = (props) => {
 	const { fileName, image, ...otherProps } = props;
 
 	return (
@@ -25,5 +25,3 @@ const FilePreview: FC<FilePreviewProps> = (props) => {
 		</div>
 	);
 };
-
-export default FilePreview;

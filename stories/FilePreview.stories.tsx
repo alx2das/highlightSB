@@ -23,7 +23,7 @@ const Template: ComponentStory<typeof FilePreview> = (args) => (
 export const Primary = Template.bind({});
 Primary.args = {
 	fileName: "ReminderListDataSource.swift",
-	image: "",
+	image: "IMAGE",
 	nextValue: nextValue,
 	prevValue: prevValue,
 };

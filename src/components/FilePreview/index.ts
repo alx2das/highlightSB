@@ -1,1 +1,1 @@
-export { default, FilePreviewProps } from "./FilePreview";
+export * from "./FilePreview";

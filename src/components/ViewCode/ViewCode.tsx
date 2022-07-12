@@ -11,7 +11,7 @@ export interface ViewCodeProps {
 	hideNumber?: string;
 }
 
-const ViewCode: FC<ViewCodeProps> = (props) => {
+export const ViewCode: FC<ViewCodeProps> = (props) => {
 	const {
 		nextValue,
 		prevValue = "",
@@ -40,5 +40,3 @@ const ViewCode: FC<ViewCodeProps> = (props) => {
 		</div>
 	);
 };
-
-export default ViewCode;
