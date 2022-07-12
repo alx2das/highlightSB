@@ -1,6 +1,6 @@
 # ...
 
-Демо можно посмотреть тут: [https://alx2das.github.io/highlightSB/](https://alx2das.github.io/highlightSB/)
+Демо можно посмотреть тут: [https://alx2das.github.io/highlightSB/demo/](https://alx2das.github.io/highlightSB/demo/)
 
 ### Сборка и отладка
 
