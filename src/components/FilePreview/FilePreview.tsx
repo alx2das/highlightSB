@@ -16,14 +16,14 @@ export const FilePreview: FC<FilePreviewProps> = (props) => {
 	const { fileName, image, ...otherProps } = props;
 
 	return (
-		<div className="steps-preview" id="preview-file">
-			{fileName && <div className="steps-preview__name">{fileName}</div>}
+		<div className="tutorial-steps-preview" id="preview-file">
+			{fileName && <div className="tutorial-steps-preview__name">{fileName}</div>}
 			{image && (
-				<div className="steps-preview__image">
+				<div className="tutorial-steps-preview__image">
 					<img src={image} alt={fileName} />
 				</div>
 			)}
-			<div className="steps-preview__code">
+			<div className="tutorial-steps-preview__code">
 				<ViewCode {...otherProps} />
 			</div>
 		</div>

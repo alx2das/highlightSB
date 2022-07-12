@@ -35,11 +35,11 @@ export const LessonSteps: FC<LessonStepsProps> = (props) => {
 
 	return (
 		<section className="page-section _steps">
-			<div className="steps">
+			<div className="tutorial-steps">
 				{steps.map((step, index) => (
 					<div
 						key={`step-${index}`}
-						className={cn("steps-item", { _active: active === index })}
+						className={cn("tutorial-steps__item", { _active: active === index })}
 					>
 						<div className="inner-block" onClick={() => setActive(index)}>
 							<h4 className="inner-title">{step.name}</h4>

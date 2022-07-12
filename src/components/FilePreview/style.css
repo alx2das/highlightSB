@@ -1,0 +1,27 @@
+/* steps preview code & image */
+.tutorial-steps-preview {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 10px;
+	height: calc(100vh - 20px);
+	background: #f2f4f5;
+	border-radius: 16px;
+	overflow: auto;
+}
+
+.tutorial-steps-preview__name {
+	margin: 12px auto 28px 20px;
+	line-height: 22px;
+	font-size: 14px;
+	color: #A7ADBC;
+}
+
+.tutorial-steps-preview__image {
+	margin: 50px auto;
+	height: 300px;
+	text-align: center;
+}
+
+.tutorial-steps-preview__image img {
+	height: 100%;
+}
