@@ -1,45 +1,80 @@
-export const prevValue = `{
-    "@babel/core": "^7.18.6",
-    "@storybook/addon-actions": "^6.5.9",
-    "@storybook/addon-essentials": "^6.5.9",
-    "@storybook/addon-interactions": "^6.5.9",
-    "@storybook/addon-links": "^6.5.9",
-    "@storybook/builder-webpack4": "^6.5.9",
-    "@storybook/manager-webpack4": "^6.5.9",
-    "@storybook/react": "^6.5.9",
-    "@storybook/testing-library": "^0.0.13",
-    "@types/diff": "^5.0.2",
-    "@types/node": "^18.0.3",
-    "@types/react": "^17.0.47",
-    "@types/react-dom": "^17.0.17",
-    "babel-loader": "^8.2.5",
-    "eslint-config-prettier": "^8.5.0",
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "typescript": "^4.7.4"
+export const prevValue = `import UIKit
+
+class ReminderListDataSource: NSObject {
+    typealias ReminderCompletedAction = (Int) -> Void
+    typealias ReminderDeletedAction = () -> Void
+    typealias RemindersChangedAction = () -> Void
+
+    enum Filter: Int {
+        case today
+        case future
+        case all
+        
+        func shouldInclude(date: Date) -> Bool {
+            let isInToday = Locale.current.calendar.isDateInToday(date)
+            switch self {
+            case .today:
+                return isInToday
+            case .future:
+                return (date > Date()) && !isInToday
+            case .all:
+                return true
+            }
+        }
+    }
+
+    var filter: Filter = .today
+
+    var filteredReminders: [Reminder] {
+        return reminders.filter { filter.shouldInclude(date: $0.dueDate) }.sorted { $0.dueDate < $1.dueDate }
+    }
+
+    var percentComplete: Double {
+        guard filteredReminders.count > 0 else {
+            return 1
+        }
+        let numComplete: Double = filteredReminders.reduce(0) { $0 + ($1.isComplete ? 1 : 0) }
+        return numComplete / Double(filteredReminders.count)
+    }
 }`;
-export const nextValue = `{
-    "@babel/core": "^7.18.6",
-    "@babel/cli": "^7.18.6",
-    "@storybook/addon-actions": "^6.5.9",
-    "@storybook/addon-essentials": "^6.5.9",
-    "@storybook/addon-interactions": "^6.5.9",
-    "@storybook/addon-links": "^6.5.9",
-    "@storybook/builder-webpack4": "^6.5.9",
-    "@storybook/manager-webpack4": "^6.5.9",
-    "@storybook/react": "^6.5.9",
-    "@storybook/testing-library": "^0.0.13",
-    "babel-loader": "^8.2.5",
-    "eslint-config-prettier": "^8.5.0",
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^4.7.4"
+export const nextValue = `import UIKit
+
+class ReminderListDataSource: NSObject {
+    typealias ReminderCompletedAction = (Int) -> Void
+    typealias ReminderDeletedAction = () -> Void
+    typealias RemindersChangedAction = () -> Void
+
+    enum Filter: Int {
+        case today
+        case future
+        case all
+        
+        func shouldInclude(date: Date) -> Bool {
+            let isInToday = Locale.current.calendar.isDateInToday(date)
+            switch self {
+            case .today:
+                return isInToday
+            case .future:
+                return (date > Date()) && !isInToday
+            case .all:
+                return false
+            }
+        }
+    }
+
+    var filter: Filter = .today
+
+    var filteredReminders: [Reminder] {
+        return reminders.filter { filter.shouldInclude(date: $0.dueDate) }.sorted { $0.dueDate < $1.dueDate }
+    }
+
+    var percentComplete: Double {
+        guard filteredReminders.count > 0 else {
+            return 1
+        }
+        let numComplete: Double = filteredReminders.reduce(0) { $0 + ($1.isComplete ? 1 : 0) }
+        return numComplete / Double(filteredReminders.count)
+    }
 }`;
 
 export const query_sections = {
@@ -54,8 +89,8 @@ export const query_sections = {
 				{
 					id: 1,
 					name: "Название шага 1. Секция 1.",
-					description: "Описание шага 1. Секция 1.",
-					comment: "Коментарий",
+					description: "Add a method named readReminder to the bottom of the extension in ReminderListDataSource.swift. The method accepts a string and a completion handler of type (EKReminder?) -> Void.",
+					comment: "Start by adding a method to fetch an individual reminder from the event store.",
 					code_title: "НазваниеФайлаШаг1.swift",
 					code: prevValue,
 					position: 1,

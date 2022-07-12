@@ -20,7 +20,7 @@ export interface LessonStepsProps {
 export const LessonSteps: FC<LessonStepsProps> = (props) => {
 	const { steps } = props;
 
-	const [active] = useState(0);
+	const [activeIndex] = useState(0);
 
 	return (
 		<section className="page-section _steps">
@@ -28,7 +28,7 @@ export const LessonSteps: FC<LessonStepsProps> = (props) => {
 				{steps.map((step, index) => (
 					<div
 						key={`step-${index}`}
-						className={cn("steps-item", { _active: active === index })}
+						className={cn("steps-item", { _active: activeIndex === index })}
 					>
 						<div className="inner-block">
 							<h4 className="inner-title">{step.name}</h4>
@@ -41,7 +41,12 @@ export const LessonSteps: FC<LessonStepsProps> = (props) => {
 				))}
 			</div>
 
-			<FilePreview nextValue="123" />
+			<FilePreview
+				fileName={steps[1].code_title}
+				image={steps[0].image_video_url}
+				prevValue={steps[0].code}
+				nextValue={steps[1].code}
+			/>
 		</section>
 	);
 };
