@@ -1,7 +1,10 @@
 import React, { FC } from "react";
 
 import { LessonSteps, Step } from "../LessonSteps";
+
 import "./style.css";
+import "./example.styl";
+
 
 export interface LessonSectionProps {
 	title: string;
