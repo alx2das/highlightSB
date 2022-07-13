@@ -26,7 +26,7 @@ export function searchMarkers(prev: string, next: string): Markers {
 
 			return accum;
 		},
-		{ markers: {}, number: 0 }
+		{ markers: {}, number: 0 },
 	);
 
 	return markers;

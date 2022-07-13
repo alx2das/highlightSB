@@ -28,6 +28,6 @@ const ViewCodeLine: FC<Props> = ({ content, number, marker, hideNumber }) => {
 			/>
 		</>
 	);
-}
+};
 
 export default ViewCodeLine;

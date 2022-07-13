@@ -18,11 +18,11 @@
 }
 .view-code .vc-line._number {
 	padding: 0 20px;
-	color: #A7ADBC;
+	color: #a7adbc;
 	user-select: none;
 }
 .view-code .vc-line._number::before {
-	content: '';
+	content: "";
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -34,13 +34,13 @@
 }
 .view-code .vc-line._added._number::before {
 	bottom: 0;
-	border-left: 4px solid #205DD4;
+	border-left: 4px solid #205dd4;
 }
 /* REMOVED */
 .view-code .vc-line._removed._number::before {
 	transform: translateY(-50%);
 	border-top: 5px solid transparent;
-	border-left: 10px solid #D42020;
+	border-left: 10px solid #d42020;
 	border-bottom: 5px solid transparent;
 }
 /* UPDATED */
@@ -49,5 +49,5 @@
 }
 .view-code .vc-line._updated._number::before {
 	bottom: 0;
-	border-left: 4px solid #205DD4;
+	border-left: 4px solid #205dd4;
 }
