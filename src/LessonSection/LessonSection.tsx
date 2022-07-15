@@ -5,7 +5,8 @@ import React from "react";
 import LessonSource from "./LessonSource";
 import LessonSteps from "./LessonSteps";
 
-import "./style.styl";
+import "./LessonSection.styl";
+import "./LessonSteps.styl";
 
 const LessonSection: FC<SectionType> = (props) => {
 	const { title, subtitle, description, source = {}, steps = [] } = props;
@@ -14,11 +15,9 @@ const LessonSection: FC<SectionType> = (props) => {
 		<>
 			<section className="sb-lesson-section">
 				<div className="section-info">
-					{title && <h4 className="info__title">{title}</h4>}
-					{subtitle && <h2 className="info__subtitle">{subtitle}</h2>}
-					{description && (
-						<div className="info__description">{description}</div>
-					)}
+					{title && <h4 className="inner-title">{title}</h4>}
+					{subtitle && <h2 className="inner-subtitle">{subtitle}</h2>}
+					{description && <div className="inner-description">{description}</div>}
 				</div>
 
 				<div className="section-source">

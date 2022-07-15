@@ -1,11 +1,11 @@
-import type { FC } from "react";
-import type { StepType } from "./types";
-
-import React, { useCallback, useState } from "react";
-import cn from "classnames";
+import React, { FC, useCallback, useState } from "react";
 import { Waypoint } from "react-waypoint";
+import cn from "classnames";
+
+import type { StepType } from "./types";
 import LessonSource from "./LessonSource";
 import ViewCode from "../ViewCode";
+// import "./LessonSteps.styl;"
 
 const LessonSteps: FC<{ steps: StepType[] }> = ({ steps }) => {
 	const firstStep = steps.find(({ id }) => Boolean(id)) || { id: "" };

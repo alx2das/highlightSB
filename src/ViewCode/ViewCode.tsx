@@ -3,7 +3,7 @@ import "highlight.js/styles/github.css";
 
 import { searchMarkers, lineNumbering } from "./helpers";
 import ViewCodeLine from "./ViewCodeLine";
-import "./style.css";
+import "./ViewCode.styl";
 
 export interface ViewCodeProps {
 	nextValue: string;

@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import cn from "classnames";
 
 import { Marker } from "./types";
+import "./ViewCodeLine.styl";
 
 interface Props {
 	content: string;

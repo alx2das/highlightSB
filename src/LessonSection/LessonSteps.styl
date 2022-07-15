@@ -1,0 +1,68 @@
+.sb-lesson-steps
+	display grid
+	grid-template-columns 390px minmax(0, auto) // 37.8640776699% = 390px/1030px * 100
+	column-gap 40px
+	margin-top 80px
+	width 100%
+
+	.tutorial-steps
+		margin-bottom 92vh
+
+	// step item
+	.tutorial-steps__item
+		line-height 22px
+		font-size 14px
+
+		& + .tutorial-steps__item
+			margin-top 100px
+
+		&._active
+			.inner-block::before
+				content ''
+				position absolute
+				left 0
+				top 0
+				bottom 0
+				border-left 8px solid #205dd4
+
+		// step block
+		.inner-block
+			position relative
+			padding 30px 20px 30px 28px
+			border 1px solid #c8d1d7
+			border-radius 16px
+			overflow hidden
+			cursor pointer
+
+		// step title
+		.inner-title
+			margin-bottom 20px
+
+		// step comment
+		.inner-comment
+			margin-top 20px
+
+
+// STEPS PREVIEW CODE & IMAGE
+.tutorial-steps-preview
+	position -webkit-sticky
+	position sticky
+	top 10px
+	height calc(100vh - 20px)
+	background #f2f4f5
+	border-radius 16px
+	overflow auto
+
+.tutorial-steps-preview__name
+	margin 12px auto 28px 20px
+	line-height 22px
+	font-size 14px
+	color #A7ADBC
+
+.tutorial-steps-preview__image
+	margin 50px auto
+	height 300px
+	text-align center
+
+	img
+		height 100%
