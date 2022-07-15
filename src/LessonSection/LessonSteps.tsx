@@ -1,5 +1,6 @@
 import React, { FC, useCallback, useState } from "react";
 import { Waypoint } from "react-waypoint";
+import CSSMotion from 'rc-motion';
 import cn from "classnames";
 
 import type { StepType } from "./types";
@@ -61,26 +62,40 @@ const LessonSteps: FC<{ steps: StepType[] }> = ({ steps }) => {
 			</div>
 
 			<div className="tutorial-steps-preview">
-				{nextStep?.fileName && (
-					<div className="tutorial-steps-preview__name">
-						{nextStep.fileName}
-					</div>
-				)}
+				<CSSMotion
+						visible={Boolean(!nextStep?.source)}
+						motionName="motion-tutorial-steps-preview"
+					>
+					{({ className: motionClassName, style: motionStyle }) => (
+						<>
+							{nextStep?.fileName && (
+								<div className={cn("tutorial-steps-preview__name", motionClassName)} style={motionStyle}>
+									{nextStep.fileName}
+								</div>
+							)}
 
-				{nextStep?.source && (
-					<div className="section-source">
-						<LessonSource {...nextStep.source} />
-					</div>
-				)}
+							{nextStep?.fileContent && (
+								<div className={cn("tutorial-steps-preview__code", motionClassName)} style={motionStyle}>
+									<ViewCode
+										prevValue={prevStep?.fileContent}
+										nextValue={nextStep.fileContent}
+									/>
+								</div>
+							)}
+						</>
+					)}
+				</CSSMotion>
 
-				{nextStep?.fileContent && (
-					<div className="tutorial-steps-preview__code">
-						<ViewCode
-							prevValue={prevStep?.fileContent}
-							nextValue={nextStep.fileContent}
-						/>
-					</div>
-				)}
+				<CSSMotion
+					visible={Boolean(nextStep?.source)}
+					motionName="motion-tutorial-steps-preview"
+				>
+					{({ className: motionClassName, style: motionStyle }) => (
+						<div className={cn("section-source", motionClassName)} style={motionStyle}>
+							<LessonSource {...nextStep?.source} />
+						</div>
+					)}
+				</CSSMotion>
 			</div>
 		</section>
 	);

@@ -49,6 +49,7 @@
 
 
 // STEPS PREVIEW CODE & IMAGE
+// -----------------------------------------------
 .tutorial-steps-preview
 	position -webkit-sticky
 	position sticky
@@ -71,3 +72,20 @@
 
 	img
 		height 100%
+
+
+// CSS MOTION AOB CONTENT
+// -----------------------------------------------
+.motion-tutorial-steps-preview-enter
+	opacity 0
+	transition .3s
+
+	&.motion-tutorial-steps-preview-enter-active
+		opacity 1
+
+.motion-tutorial-steps-preview-leave
+	opacity 1
+	transition .3s
+
+	&.motion-tutorial-steps-preview-leave-active
+		opacity 0
