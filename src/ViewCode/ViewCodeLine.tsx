@@ -1,21 +1,18 @@
-import React, { FC } from "react";
+import type { FC } from "react";
+import type { ViewCodeLineProps } from "./types";
+
+import React from "react";
 import cn from "classnames";
 
-import { Marker } from "./types";
 import "./ViewCodeLine.styl";
 
-interface Props {
-	content: string;
-	number: number;
-	marker: Marker;
-	hideNumber: boolean;
-}
+const ViewCodeLine: FC<ViewCodeLineProps> = (props) => {
+	const { number, content, marker, hideNumber } = props;
 
-const ViewCodeLine: FC<Props> = ({ content, number, marker, hideNumber }) => {
 	const markerClassNames = cn({
 		_added: marker.added && !marker.removed,
 		_removed: !marker.added && marker.removed,
-		_updated: marker.added && marker.removed,
+		_updated: (marker.added && marker.removed) || marker.updated,
 	});
 
 	return (

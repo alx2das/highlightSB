@@ -1,39 +1,37 @@
-import React, { FC } from "react";
-import "highlight.js/styles/github.css";
+import type { FC } from "react";
+import type { ViewCodeProps } from "./types";
 
-import { searchMarkers, lineNumbering } from "./helpers";
+import React from "react";
 import ViewCodeLine from "./ViewCodeLine";
-import "./ViewCode.styl";
+import { searchMarkers, lineNumbering } from "./helpers";
 
-export interface ViewCodeProps {
-	nextValue: string;
-	prevValue?: string;
-	startNumber?: number;
-	hideNumber?: string;
-}
+import "./ViewCode.styl";
 
 const ViewCode: FC<ViewCodeProps> = (props) => {
 	const {
 		nextValue,
-		prevValue = "",
+		prevValue = undefined,
+		language = "swift",
 		startNumber = 1,
 		hideNumber = false,
+		markers = undefined,
 	} = props;
 
-	const markers = searchMarkers(prevValue, nextValue);
-	const htmlLines = lineNumbering(nextValue);
+	const _markers = searchMarkers({ nextValue, prevValue, language, markers });
+	const _htmlLines = lineNumbering({ nextValue });
 
 	return (
 		<div className="view-code">
 			<pre>
 				<code>
-					{htmlLines.map((line, index) => (
+					{_htmlLines.map((content, index) => (
 						<ViewCodeLine
 							key={`${index}-line`}
-							content={line}
+							index={index}
 							number={startNumber + index}
-							marker={markers[index] || {}}
-							hideNumber={Boolean(hideNumber)}
+							content={content}
+							marker={_markers[index] || {}}
+							hideNumber={hideNumber}
 						/>
 					))}
 				</code>

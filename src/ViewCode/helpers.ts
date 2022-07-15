@@ -1,23 +1,45 @@
+import type { Change } from "diff";
+import type { Marker, Markers } from "./types";
+
+import { diffLines } from "diff/lib/diff/line";
 import hljs from "highlight.js";
-import * as Diff from "diff";
 
-import { Markers } from "./types";
+import "highlight.js/styles/github.css";
 
-export function searchMarkers(prev: string, next: string): Markers {
-	if (!prev || !next) {
-		return {};
+type MarkersOptions = {
+	nextValue: string;
+	prevValue?: string;
+	language?: string | string[];
+	markers?: number[];
+};
+
+type LinesOptions = {
+	nextValue: string;
+};
+
+export function searchMarkers(options: MarkersOptions): Markers {
+	const _markers = (options.markers || []).reduce((accum, lineNumber) => {
+		accum[lineNumber] = {};
+		accum[lineNumber].updated = true;
+
+		return accum;
+	}, {});
+
+	if (!options.prevValue) {
+		return _markers;
 	}
 
-	const arrDiff: Diff.Change[] = Diff.diffLines(prev, next);
+	const arrDiff: Change[] = diffLines(options.prevValue, options.nextValue);
+
 	const { markers } = arrDiff.reduce(
-		(accum, change) => {
+		(accum: { markers: Marker; number: number }, change) => {
 			if (change.added || change.removed) {
-				accum.markers = create({
-					markers: accum.markers,
-					number: accum.number,
-					type: change.added ? "added" : "removed",
-					count: change.count,
-				});
+				accum.markers = createMarker(
+					accum.markers,
+					change.added ? "added" : "removed",
+					accum.number,
+					change.count,
+				);
 			}
 
 			if (!change.removed) {
@@ -26,14 +48,14 @@ export function searchMarkers(prev: string, next: string): Markers {
 
 			return accum;
 		},
-		{ markers: {}, number: 0 },
+		{ markers: _markers, number: 0 },
 	);
 
 	return markers;
 
-	// private ...
+	// private methods...
 
-	function create({ markers, type, number = 0, count = 0 }): Markers {
+	function createMarker(markers, type, number = 0, count = 0) {
 		const _count = type === "removed" ? 1 : count;
 
 		for (let i = 0; i < _count; i++) {
@@ -47,12 +69,12 @@ export function searchMarkers(prev: string, next: string): Markers {
 	}
 }
 
-export function lineNumbering(value: string): string[] {
-	const html = hljs.highlightAuto(value, ["swift"]).value;
+export function lineNumbering(options: LinesOptions): string[] {
+	const html = hljs.highlightAuto(options.nextValue, ["swift"]).value;
 	const lines = getLines(html);
 
 	if (!html) {
-		return [value];
+		return [options.nextValue];
 	}
 
 	if (lines[lines.length - 1]?.trim() === "") {

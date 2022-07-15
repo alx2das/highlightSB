@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useState } from "react";
 import { Waypoint } from "react-waypoint";
-import CSSMotion from 'rc-motion';
+import CSSMotion from "rc-motion";
 import cn from "classnames";
 
 import type { StepType } from "./types";

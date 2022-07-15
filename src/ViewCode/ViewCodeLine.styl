@@ -1,26 +1,22 @@
 /* VIEWCODE LINE */
+
 .vc-line
 	position relative
-
 	&._number
 		padding 0 20px
 		color #A7ADBC
 		user-select none
-
 		&::before
 			content ''
 			position absolute
 			top 0
 			left 0
-
 	/* ADDED */
 	&._added
-		background rgba(32,212,98, .08)
-
+		background rgba(32, 212, 98, 0.08)
 		&._number::before
 			bottom 0
 			border-left 4px solid #205DD4
-
 	/* REMOVED */
 	&._removed
 		&._number::before
@@ -28,11 +24,9 @@
 			border-top 5px solid transparent
 			border-left 10px solid #D42020
 			border-bottom 5px solid transparent
-
 	/* UPDATED */
 	&._updated
-		background rgba(32,93,212, .08)
-
+		background rgba(32, 93, 212, 0.08)
 		&._number::before
 			bottom 0
 			border-left 4px solid #205DD4
