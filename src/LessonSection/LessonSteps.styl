@@ -5,47 +5,47 @@
 	margin-top 80px
 	width 100%
 
-	.tutorial-steps
-		margin-bottom 92vh
+.tutorial-steps
+	margin-bottom 92vh
 
-	// step item
-	.tutorial-steps__item
-		line-height 22px
-		font-size 14px
+// step item
+.tutorial-steps__item
+	line-height 22px
+	font-size 14px
 
-		& + .tutorial-steps__item
-			margin-top 100px
+	& + .tutorial-steps__item
+		margin-top 100px
 
-		// step block
+	// step block
+	.inner-block
+		position relative
+		padding 30px 20px 30px 28px
+		border 1px solid #C8D1D7
+		border-radius 16px
+		overflow hidden
+		cursor pointer
+
+		&::before
+			content ''
+			position absolute
+			left 0
+			top 0
+			bottom 0
+			border-left 8px solid transparent
+			transition border-color .2s ease-in
+
+	&._active
 		.inner-block
-			position relative
-			padding 30px 20px 30px 28px
-			border 1px solid #C8D1D7
-			border-radius 16px
-			overflow hidden
-			cursor pointer
-
 			&::before
-				content ''
-				position absolute
-				left 0
-				top 0
-				bottom 0
-				border-left 8px solid transparent
-				transition border-color .2s ease-in
+				border-color #205DD4
 
-		&._active
-			.inner-block
-				&::before
-					border-color #205DD4
+	// step title
+	.inner-title
+		margin-bottom 20px
 
-		// step title
-		.inner-title
-			margin-bottom 20px
-
-		// step comment
-		.inner-comment
-			margin-top 20px
+	// step comment
+	.inner-comment
+		margin-top 20px
 
 
 // STEPS PREVIEW CODE & IMAGE
@@ -54,10 +54,14 @@
 	position -webkit-sticky
 	position sticky
 	top 10px
+	display grid
 	height calc(100vh - 20px)
 	background #F2F4F5
 	border-radius 16px
 	overflow auto
+
+	& > div
+		grid-area 1/1
 
 .tutorial-steps-preview__name
 	margin 12px auto 28px 20px
@@ -73,6 +77,12 @@
 	img
 		height 100%
 
+.tutorial-steps-preview__video
+	display flex
+
+	video
+		margin auto
+
 
 // CSS MOTION
 // -----------------------------------------------
@@ -81,11 +91,11 @@
 
 	&.motion-tutorial-steps-preview-enter-active
 		opacity 1
-		transition .45s ease-in
+		transition .3s ease-in-out
 
 .motion-tutorial-steps-preview-leave
 	opacity 1
 
 	&.motion-tutorial-steps-preview-leave-active
 		opacity 0
-		transition .45s ease-in
+		transition .3s ease-in-out

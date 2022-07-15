@@ -63,26 +63,26 @@ const LessonSteps: FC<{ steps: StepType[] }> = ({ steps }) => {
 
 			<div className="tutorial-steps-preview">
 				<CSSMotion
-						visible={Boolean(!nextStep?.source)}
-						motionName="motion-tutorial-steps-preview"
-					>
+					visible={Boolean(!nextStep?.source)}
+					motionName="motion-tutorial-steps-preview"
+				>
 					{({ className: motionClassName, style: motionStyle }) => (
-						<>
+						<div className={motionClassName} style={motionStyle}>
 							{nextStep?.fileName && (
-								<div className={cn("tutorial-steps-preview__name", motionClassName)} style={motionStyle}>
+								<div className="tutorial-steps-preview__name">
 									{nextStep.fileName}
 								</div>
 							)}
 
 							{nextStep?.fileContent && (
-								<div className={cn("tutorial-steps-preview__code", motionClassName)} style={motionStyle}>
+								<div className="tutorial-steps-preview__code">
 									<ViewCode
 										prevValue={prevStep?.fileContent}
 										nextValue={nextStep.fileContent}
 									/>
 								</div>
 							)}
-						</>
+						</div>
 					)}
 				</CSSMotion>
 
@@ -91,7 +91,7 @@ const LessonSteps: FC<{ steps: StepType[] }> = ({ steps }) => {
 					motionName="motion-tutorial-steps-preview"
 				>
 					{({ className: motionClassName, style: motionStyle }) => (
-						<div className={cn("section-source", motionClassName)} style={motionStyle}>
+						<div className={cn("tutorial-steps-preview__video", motionClassName)} style={motionStyle}>
 							<LessonSource {...nextStep?.source} />
 						</div>
 					)}
