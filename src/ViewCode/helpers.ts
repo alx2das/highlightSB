@@ -48,7 +48,7 @@ export function searchMarkers(prev: string, next: string): Markers {
 }
 
 export function lineNumbering(value: string): string[] {
-	const html = hljs.highlightAuto(value).value;
+	const html = hljs.highlightAuto(value, ["swift"]).value;
 	const lines = getLines(html);
 
 	if (!html) {
