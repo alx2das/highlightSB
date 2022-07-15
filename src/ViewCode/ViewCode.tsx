@@ -10,11 +10,11 @@ import "./ViewCode.styl";
 const ViewCode: FC<ViewCodeProps> = (props) => {
 	const {
 		nextValue,
-		prevValue = undefined,
+		prevValue,
 		language = "swift",
 		startNumber = 1,
-		hideNumber = false,
-		markers = undefined,
+		hideNumber,
+		markers
 	} = props;
 
 	const _markers = searchMarkers({ nextValue, prevValue, language, markers });

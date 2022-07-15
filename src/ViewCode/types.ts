@@ -5,8 +5,6 @@ export interface ViewCodeProps {
 	startNumber?: number;
 	hideNumber?: boolean;
 	markers?: number[];
-	minify?: boolean;
-	showLineMinify: number[];
 }
 
 export interface ViewCodeLineProps {
@@ -15,8 +13,6 @@ export interface ViewCodeLineProps {
 	content: string;
 	marker: Marker;
 	hideNumber?: boolean;
-	minify?: boolean;
-	showLineMinify?: string[];
 }
 
 export type Marker = {

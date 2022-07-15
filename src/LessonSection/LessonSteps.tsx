@@ -25,7 +25,12 @@ const LessonSteps: FC<{ steps: StepType[] }> = ({ steps }) => {
 	);
 
 	const handleSelectStep = useCallback(
-		(stepId) => () => {
+		(event, stepId) => () => {
+			// window.scrollTo({
+			// 	top: 200,
+			// 	behavior: "smooth"
+			// });
+
 			// TODO надо проскролить страницу к элементу
 
 			setStepId(stepId);
@@ -49,7 +54,7 @@ const LessonSteps: FC<{ steps: StepType[] }> = ({ steps }) => {
 							onEnter={() => setStepId(step.id)}
 						/>
 
-						<div className="inner-block" onClick={handleSelectStep(step.id)}>
+						<div className="inner-block" onClick={(event) => handleSelectStep(event, step.id)}>
 							<h4 className="inner-title">{step.title}</h4>
 							{step.description && <div>{step.description}</div>}
 						</div>
