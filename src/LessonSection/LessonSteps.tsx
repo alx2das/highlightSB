@@ -54,7 +54,10 @@ const LessonSteps: FC<{ steps: StepType[] }> = ({ steps }) => {
 							onEnter={() => setStepId(step.id)}
 						/>
 
-						<div className="inner-block" onClick={(event) => handleSelectStep(event, step.id)}>
+						<div
+							className="inner-block"
+							onClick={(event) => handleSelectStep(event, step.id)}
+						>
 							<h4 className="inner-title">{step.title}</h4>
 							{step.description && <div>{step.description}</div>}
 						</div>
@@ -96,7 +99,10 @@ const LessonSteps: FC<{ steps: StepType[] }> = ({ steps }) => {
 					motionName="motion-tutorial-steps-preview"
 				>
 					{({ className: motionClassName, style: motionStyle }) => (
-						<div className={cn("tutorial-steps-preview__video", motionClassName)} style={motionStyle}>
+						<div
+							className={cn("tutorial-steps-preview__video", motionClassName)}
+							style={motionStyle}
+						>
 							<LessonSource {...nextStep?.source} />
 						</div>
 					)}
