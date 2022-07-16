@@ -1,43 +1,59 @@
 import type { FC } from "react";
-import type { ViewCodeProps } from "./types";
+import type { ViewCodeProps, IndexesData } from "./types";
 
-import React from "react";
+import React, { useMemo } from "react";
+import { searchMarkers, lineNumbering, indexesMarkedLines } from "./utils"
 import ViewCodeLine from "./ViewCodeLine";
-import { searchMarkers, lineNumbering } from "./helpers";
 
-import "./ViewCode.styl";
+import "highlight.js/styles/github.css";
+import "./styles.styl";
+
 
 const ViewCode: FC<ViewCodeProps> = (props) => {
-	const {
-		nextValue,
-		prevValue,
-		language = "swift",
-		startNumber = 1,
-		hideNumber,
-		markers
-	} = props;
+    const {
+        nextValue,
+        prevValue,
+        startNumber = 1,
+        hideNumber
+    } = props;
 
-	const _markers = searchMarkers({ nextValue, prevValue, language, markers });
-	const _htmlLines = lineNumbering({ nextValue });
+    const isMobile = true;
 
-	return (
-		<div className="view-code">
-			<pre>
-				<code>
-					{_htmlLines.map((content, index) => (
-						<ViewCodeLine
-							key={`${index}-line`}
-							index={index}
-							number={startNumber + index}
-							content={content}
-							marker={_markers[index] || {}}
-							hideNumber={hideNumber}
-						/>
-					))}
-				</code>
-			</pre>
-		</div>
-	);
+    const htmlLines = useMemo<string[]>(() => {
+        return lineNumbering(nextValue);
+    }, [nextValue]);
+
+    const { indexes, markers } = useMemo<IndexesData>(() => {
+        const markers = searchMarkers(nextValue, prevValue);
+        const indexes = htmlLines.map((_, index) => index);
+
+        if (isMobile && Object.keys(markers).length) {
+            return indexesMarkedLines(markers, htmlLines.length, 2)
+        }
+
+        return { indexes, markers };
+    }, [isMobile, htmlLines, nextValue, prevValue]);
+
+    return (
+        <div className="view-code">
+            <pre>
+                <code>
+                    {indexes.map(i => (
+                        <ViewCodeLine
+                            key={htmlLines[i] + i}
+
+                            number={startNumber + i}
+                            content={htmlLines[i]}
+                            marker={markers[i] || {}}
+
+                            hideNumber={Boolean(hideNumber)}
+                        />
+                    ))}
+                </code>
+            </pre>
+        </div>
+    );
 };
+
 
 export default ViewCode;

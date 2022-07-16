@@ -1,26 +1,30 @@
 export interface ViewCodeProps {
-	nextValue: string;
-	prevValue?: string;
-	language?: string | string[];
-	startNumber?: number;
-	hideNumber?: boolean;
-	markers?: number[];
+    nextValue: string;
+    prevValue?: string;
+    startNumber?: number;
+    hideNumber?: boolean;
 }
 
 export interface ViewCodeLineProps {
-	index: number;
-	number: number;
-	content: string;
-	marker: Marker;
-	hideNumber?: boolean;
+    number: number;
+    content: string;
+    marker: Marker;
+    hideNumber: boolean;
 }
 
 export type Marker = {
-	added?: boolean;
-	removed?: boolean;
-	updated?: boolean;
+    added?: true;
+    removed?: true;
+    updated?: true;
+    minify_p?: true;
+    minify_n?: true;
 };
 
-export type Markers = {
-	[line: number]: Marker | undefined;
+export type MapMarkers = {
+    [lineNumber: string]: Marker | undefined
+}
+
+export type IndexesData = {
+    indexes: number[],
+    markers: MapMarkers
 };

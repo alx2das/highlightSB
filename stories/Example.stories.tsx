@@ -1,8 +1,8 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { LessonSection, SectionType } from "../src";
-import { Layout } from "./Layout";
-import { sections } from "./Example.data";
+import { LayoutLessonSection } from "./demo/demo.Layouts";
+import { sections } from "./demo/Example.data";
 
 
 export default {
@@ -12,14 +12,14 @@ export default {
 
 
 const Template: ComponentStory<typeof LessonSection> = (args) => (
-    <Layout>
+    <LayoutLessonSection>
         {sections.map((section: SectionType, index) => (
             <LessonSection
                 key={index + section.title}
                 {...section}
             />
         ))}
-    </Layout>
+    </LayoutLessonSection>
 );
 
 export const Primary = Template.bind({});
