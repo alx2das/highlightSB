@@ -1,33 +1,48 @@
 import type { FC } from "react";
-import type { SectionType } from "./types";
+import type { LessonSectionProps } from "./types";
 
 import React from "react";
-import LessonSource from "./LessonSource";
-import LessonSteps from "./LessonSteps";
+import LessonSectionSource from "./LessonSectionSource";
+import LessonSectionSteps from "./LessonSectionSteps";
 
-import "./LessonSection.styl";
-import "./LessonSteps.styl";
+import "./styles.styl";
 
-const LessonSection: FC<SectionType> = (props) => {
-	const { title, subtitle, description, source = {}, steps = [] } = props;
+const LessonSection: FC<LessonSectionProps> = (props) => {
+	const {
+		title,
+		subtitle,
+		description,
+
+		sourceUrl,
+		sourceType,
+		sourceNode,
+
+		steps,
+	} = props;
 
 	return (
 		<>
 			<section className="sb-lesson-section">
 				<div className="section-info">
-					{title && <h4 className="inner-title">{title}</h4>}
-					{subtitle && <h2 className="inner-subtitle">{subtitle}</h2>}
+					<h4 className="inner-title">{title}</h4>
+					<h2 className="inner-subtitle">{subtitle}</h2>
+
 					{description && (
 						<div className="inner-description">{description}</div>
 					)}
 				</div>
 
 				<div className="section-source">
-					<LessonSource {...source} />
+					<LessonSectionSource
+						alt={subtitle}
+						sourceUrl={sourceUrl}
+						sourceType={sourceType}
+						sourceNode={sourceNode}
+					/>
 				</div>
 			</section>
 
-			{Boolean(steps?.length) && <LessonSteps steps={steps} />}
+			{Boolean(steps?.length) && <LessonSectionSteps steps={steps} />}
 		</>
 	);
 };

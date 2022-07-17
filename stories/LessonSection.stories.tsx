@@ -1,30 +1,30 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { LessonSection, SectionType } from "../src";
 import { LayoutLessonSection } from "./demo/demo.Layouts";
-import { sections } from "./demo/Example.data";
+import { section } from "./demo/demo.Data";
 
+import { LessonSection } from "../src";
 
 export default {
     title: "LessonSection",
     component: LessonSection
 } as ComponentMeta<typeof LessonSection>;
 
-
 const Template: ComponentStory<typeof LessonSection> = (args) => (
     <LayoutLessonSection>
-        {sections.map((section: SectionType, index) => (
-            <LessonSection
-                key={index + section.title}
-                {...section}
-            />
-        ))}
+        <LessonSection {...args} />
     </LayoutLessonSection>
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+    title: section.title,
+    subtitle: section.subtitle,
+    description: section.description,
 
+    sourceUrl: section.sourceUrl,
+    sourceType: section.sourceType,
+    sourceNode: section.sourceNode,
 
-
-
+    steps: section.steps
+};
