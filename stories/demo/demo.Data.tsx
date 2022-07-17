@@ -115,10 +115,7 @@ export const section = {
 			sourceUrl:
 				"https://docs-assets.developer.apple.com/published/c7d95cb7ac3766b005ce7d8117c7e02e/UIK_130-010-060~dark@2x.mp4",
 			sourceType: "video",
-			sourceNode: undefined,
-
-			fileName: "SimpleCodeOne.swift",
-			fileContent: SimpleCodeOne,
+			sourceNode: undefined
 		},
 	],
 };
