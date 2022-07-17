@@ -33,8 +33,6 @@ const LessonSectionPreview: FC<LessonSectionPreviewProps> = (props) => {
 		return { nextStep: step, prevStep: prevStep };
 	}, [steps, step]);
 
-	console.log(prevStep, nextStep);
-
 	return (
 		<div className={className}>
 			<div>
