@@ -1,0 +1,4 @@
+{
+    "queryMobile": "only screen and (max-width:600px)",
+    "queryTablet": "only screen and (min-width:601px) and (max-width:900px)"
+}

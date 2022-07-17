@@ -11,8 +11,8 @@ const ViewCodeLine: FC<ViewCodeLineProps> = (props) => {
 		_added: marker.added && !marker.removed,
 		_removed: !marker.added && marker.removed,
 		_updated: (marker.added && marker.removed) || marker.updated,
-		_minify_prev: marker.minify_p,
-		_minify_next: marker.minify_n,
+		"_minify-prev": marker.minify_p,
+		"_minify-next": marker.minify_n,
 	});
 
 	return (

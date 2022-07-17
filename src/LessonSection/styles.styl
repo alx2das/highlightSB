@@ -1,24 +1,35 @@
+@require "../Responsive/styles.styl"
+
+
 .sb-lesson-section
 	display grid
 	grid-template-columns 55fr 45fr
 	column-gap 80px
+
+	+media(mobile tablet)
+		grid-template-columns 1fr
+
 	.section-info
 		line-height 28px
 		font-size 18px
+
 		.inner-title
 			margin-bottom 10px
+
 		.inner-subtitle
 			margin-bottom 20px
+
 		.inner-description
 			margin-bottom 10px
+
 			p
 				margin-bottom 20px
+
 	.section-source
 		display flex
 		align-items center
 		justify-content flex-end
-		img
-			max-width 100%
+
 
 .sb-lesson-steps
 	display grid
@@ -30,13 +41,15 @@
 .tutorial-steps
 	margin-bottom 92vh
 
-// step item
 
+// STEP ITEM
 .tutorial-steps__item
 	line-height 22px
 	font-size 14px
+
 	& + .tutorial-steps__item
 		margin-top 100px
+
 	// step block
 	.inner-block
 		position relative
@@ -45,6 +58,7 @@
 		border-radius 16px
 		overflow hidden
 		cursor pointer
+
 		&::before
 			content ''
 			position absolute
@@ -52,22 +66,24 @@
 			top 0
 			bottom 0
 			border-left 8px solid transparent
-			transition border-color 0.2s ease-in
+			transition border-color .2s ease-in
+
 	&._active
 		.inner-block
 			&::before
 				border-color #205DD4
+
 	// step title
 	.inner-title
 		margin-bottom 20px
+
 	// step comment
 	.inner-comment
 		margin-top 20px
 
+
 // STEPS PREVIEW CODE & IMAGE
-
 // -----------------------------------------------
-
 .tutorial-steps-preview
 	position -webkit-sticky
 	position sticky
@@ -77,6 +93,7 @@
 	background #F2F4F5
 	border-radius 16px
 	overflow auto
+
 	& > div
 		grid-area 1 / 1
 
@@ -90,26 +107,9 @@
 	margin 50px auto
 	height 300px
 	text-align center
-	img
-		height 100%
 
 .tutorial-steps-preview__video
 	display flex
+
 	video
 		margin auto
-
-// CSS MOTION
-
-// -----------------------------------------------
-
-.motion-tutorial-steps-preview-enter
-	opacity 0
-	&.motion-tutorial-steps-preview-enter-active
-		opacity 1
-		transition 0.3s ease-in-out
-
-.motion-tutorial-steps-preview-leave
-	opacity 1
-	&.motion-tutorial-steps-preview-leave-active
-		opacity 0
-		transition 0.3s ease-in-out

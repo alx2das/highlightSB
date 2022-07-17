@@ -5,7 +5,7 @@ import React, { useState, useCallback, Fragment } from "react";
 import cn from "classnames";
 import { Waypoint } from "react-waypoint";
 import LessonSectionPreview from "./LessonSectionPreview";
-import useResponsive from "./useResponsive";
+import useResponsive from "../Responsive";
 
 const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 	const { steps } = props;

@@ -3,7 +3,7 @@ import type { LessonSectionPreviewProps, Step } from "./types";
 
 import React, { useMemo } from "react";
 import LessonSectionSource from "./LessonSectionSource";
-import ViewCode from "../ViewCode/ViewCode";
+import ViewCode from "../ViewCode";
 
 const LessonSectionPreview: FC<LessonSectionPreviewProps> = (props) => {
 	const {
@@ -35,20 +35,19 @@ const LessonSectionPreview: FC<LessonSectionPreviewProps> = (props) => {
 
 	return (
 		<div className={className}>
+			<LessonSectionSource
+				alt={nextStep?.title || nextStep?.fileName || ""}
+				sourceNode={nextStep?.sourceNode}
+				sourceUrl={nextStep?.sourceUrl}
+				sourceType={nextStep?.sourceType}
+			/>
+
 			<div>
 				{nextStep?.fileName && (
 					<div className="tutorial-steps-preview__name">
 						{nextStep.fileName}
 					</div>
 				)}
-
-				<LessonSectionSource
-					alt={nextStep?.title || nextStep?.fileName || ""}
-					sourceNode={nextStep?.sourceNode}
-					sourceUrl={nextStep?.sourceUrl}
-					sourceType={nextStep?.sourceType}
-				/>
-
 				{nextStep?.fileContent && (
 					<div className="tutorial-steps-preview__code">
 						<ViewCode

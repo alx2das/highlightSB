@@ -1,0 +1,23 @@
+json("./queries.json")
+
+
+// MEDIA QUERIES
+// -----------------------------------------------
+$media-queries = {
+	mobile: queryMobile
+	tablet: queryTablet
+}
+
+
+// MEDIA MIXIN
+// -----------------------------------------------
+media(breakpoints)
+	conditions = ()
+
+	for breakpoint in breakpoints
+		push(conditions, $media-queries[breakpoint])
+
+	conditions = join(', ', conditions)
+
+	@media conditions
+		{block}
