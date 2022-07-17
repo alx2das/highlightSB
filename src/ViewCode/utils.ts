@@ -89,36 +89,34 @@ export function indexesMarkedLines(
 	maxLines,
 	count = 3,
 ): IndexesData {
-	const indexes = Object.keys(markers);
+	const _indexes = Object.keys(markers);
+	const _count = count < 2 ? 2 : count;
 
-	const { markers: _markers, buffer } = indexes.reduce(
-		(accum: { markers: MapMarkers; buffer: number[] }, i) => {
-			const index = parseInt(i);
-			const check = (p) => p >= 0 && p <= maxLines && !accum.buffer.includes(p);
+	const checkIndexes = _indexes.reduce((checkIndexes: number[], i: string) => {
+		const index = parseInt(i);
+		const check = (p) => p >= 0 && p <= maxLines && !checkIndexes.includes(p);
 
-			for (let p = index - count; p <= index; p++) {
-				if (check(p)) accum.buffer.push(p);
-			}
+		for (let p = index - _count; p <= index; p++) {
+			if (check(p)) checkIndexes.push(p);
+		}
 
-			if (!accum.buffer.includes(index)) {
-				accum.buffer.push(index);
-			}
+		if (!checkIndexes.includes(index)) {
+			checkIndexes.push(index);
+		}
 
-			for (let p = index; p <= index + count; p++) {
-				if (check(p)) accum.buffer.push(p);
-			}
+		for (let p = index; p <= index + _count; p++) {
+			if (check(p)) checkIndexes.push(p);
+		}
 
-			return accum;
-		},
-		{ markers: markers, buffer: [] },
-	);
+		return checkIndexes;
+	}, []);
 
-	const response = buffer.reduce(
+	return checkIndexes.reduce(
 		(accum, index) => {
 			const min = index - 1;
 			const max = index + 1;
 
-			if (index > 0 && !accum.buffer.includes(min)) {
+			if (index > 0 && !accum.indexes.includes(min)) {
 				accum.markers = createMarker({
 					markers: accum.markers,
 					type: "minify_p",
@@ -126,7 +124,7 @@ export function indexesMarkedLines(
 				});
 			}
 
-			if (index < maxLines && !accum.buffer.includes(max)) {
+			if (index < maxLines && !accum.indexes.includes(max)) {
 				accum.markers = createMarker({
 					markers: accum.markers,
 					type: "minify_n",
@@ -136,13 +134,8 @@ export function indexesMarkedLines(
 
 			return accum;
 		},
-		{ markers: markers, buffer: buffer },
+		{ markers: markers, indexes: checkIndexes },
 	);
-
-	return {
-		indexes: response.buffer,
-		markers: response.markers,
-	};
 
 	function createMarker({ markers, type, index }) {
 		const i = index.toString();

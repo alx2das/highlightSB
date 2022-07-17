@@ -3,6 +3,8 @@ export interface ViewCodeProps {
 	prevValue?: string;
 	startNumber?: number;
 	hideNumber?: boolean;
+	minify?: boolean;
+	minifyCountSpace?: number;
 }
 
 export interface ViewCodeLineProps {

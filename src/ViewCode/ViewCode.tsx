@@ -9,9 +9,17 @@ import "highlight.js/styles/github.css";
 import "./styles.styl";
 
 const ViewCode: FC<ViewCodeProps> = (props) => {
-	const { nextValue, prevValue, startNumber = 1, hideNumber } = props;
+	const {
+		nextValue,
+		prevValue,
+		startNumber = 1,
+		hideNumber,
+		minify,
+		minifyCountSpace,
+	} = props;
 
-	const isMobile = true;
+	const isMobile = minify;
+	const count = (minifyCountSpace && parseInt("" + minifyCountSpace)) || 2;
 
 	const htmlLines = useMemo<string[]>(() => {
 		return lineNumbering(nextValue);
@@ -22,11 +30,11 @@ const ViewCode: FC<ViewCodeProps> = (props) => {
 		const indexes = htmlLines.map((_, index) => index);
 
 		if (isMobile && Object.keys(markers).length) {
-			return indexesMarkedLines(markers, htmlLines.length, 2);
+			return indexesMarkedLines(markers, htmlLines.length, count);
 		}
 
 		return { indexes, markers };
-	}, [isMobile, htmlLines, nextValue, prevValue]);
+	}, [isMobile, htmlLines, nextValue, prevValue, count]);
 
 	return (
 		<div className="view-code">
