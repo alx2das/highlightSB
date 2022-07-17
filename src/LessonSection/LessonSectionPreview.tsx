@@ -11,7 +11,7 @@ const LessonSectionPreview: FC<LessonSectionPreviewProps> = (props) => {
 		steps,
 
 		className,
-		minify
+		minify,
 	} = props;
 
 	const { prevStep, nextStep } = useMemo(() => {
@@ -20,24 +20,26 @@ const LessonSectionPreview: FC<LessonSectionPreviewProps> = (props) => {
 		}
 
 		const stepIndex = steps.findIndex((s) => s === step);
-		const prevStep = (stepIndex > 0 ? steps.slice(0, stepIndex) : [])
-			.reduceRight((prevStep: Step | undefined, s: Step) => {
-				if (!prevStep && s.fileName === step.fileName) {
-					prevStep = step;
-				}
+		const prevStep = (
+			stepIndex > 0 ? steps.slice(0, stepIndex) : []
+		).reduceRight((prevStep: Step | undefined, s: Step) => {
+			if (!prevStep && s.fileName === step.fileName) {
+				prevStep = step;
+			}
 
-				return prevStep;
-			}, undefined);
+			return prevStep;
+		}, undefined);
 
 		return { nextStep: step, prevStep: prevStep };
 	}, [steps, step]);
-
 
 	return (
 		<div className={className}>
 			<div>
 				{nextStep?.fileName && (
-					<div className="tutorial-steps-preview__name">{nextStep.fileName}</div>
+					<div className="tutorial-steps-preview__name">
+						{nextStep.fileName}
+					</div>
 				)}
 
 				<LessonSectionSource
