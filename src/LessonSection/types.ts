@@ -27,15 +27,8 @@ export interface LessonSectionStepsProps {
 export interface LessonSectionPreviewProps {
 	className?: string;
 
-	title?: string;
-	fileName?: string;
-
-	sourceUrl?: string;
-	sourceType?: string;
-	sourceNode?: ReactNode;
-
-	prevValue?: string;
-	nextValue?: string;
+	step?: Step;
+	steps: Step[];
 
 	minify?: boolean;
 }
