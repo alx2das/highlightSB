@@ -28,7 +28,7 @@ export interface LessonSectionPreviewProps {
 	className?: string;
 
 	title?: string;
-	fileName?: string
+	fileName?: string;
 
 	sourceUrl?: string;
 	sourceType?: string;
@@ -37,7 +37,7 @@ export interface LessonSectionPreviewProps {
 	prevValue?: string;
 	nextValue?: string;
 
-	minify?: boolean
+	minify?: boolean;
 }
 
 export type Step = {

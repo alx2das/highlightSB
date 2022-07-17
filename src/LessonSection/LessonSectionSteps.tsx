@@ -9,7 +9,6 @@ import LessonSectionPreview from "./LessonSectionPreview";
 import useResponsive from "./useResponsive";
 import useDataStep from "./useDataStep";
 
-
 const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 	const { steps } = props;
 	const [step, setStep] = useState<Step | undefined>(steps[0]);
@@ -53,10 +52,7 @@ const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 								/>
 							)}
 
-							<div
-								className="inner-block"
-								onClick={(e) => handleSelect(e)}
-							>
+							<div className="inner-block" onClick={(e) => handleSelect(e)}>
 								<h4 className="inner-title">{_step.title}</h4>
 								{_step.description && <div>{_step.description}</div>}
 							</div>
@@ -69,17 +65,13 @@ const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 						{isMobile && (
 							<LessonSectionPreview
 								className=""
-
 								title={_step?.title}
 								fileName={_step?.fileName}
-
 								sourceNode={_step?.sourceNode}
 								sourceUrl={_step?.sourceUrl}
 								sourceType={_step?.sourceType}
-
 								prevValue={prevStep?.fileContent}
 								nextValue={_step?.fileContent}
-
 								minify={true}
 							/>
 						)}
@@ -90,14 +82,11 @@ const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 			{!isMobile && (
 				<LessonSectionPreview
 					className="tutorial-steps-preview"
-
 					title={nextStep?.title}
 					fileName={nextStep?.fileName}
-
 					sourceNode={nextStep?.sourceNode}
 					sourceUrl={nextStep?.sourceUrl}
 					sourceType={nextStep?.sourceType}
-
 					prevValue={prevStep?.fileContent}
 					nextValue={nextStep?.fileContent}
 				/>
