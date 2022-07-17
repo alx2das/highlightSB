@@ -24,7 +24,7 @@ const LessonSectionPreview: FC<LessonSectionPreviewProps> = (props) => {
 			stepIndex > 0 ? steps.slice(0, stepIndex) : []
 		).reduceRight((prevStep: Step | undefined, s: Step) => {
 			if (!prevStep && s.fileName === step.fileName) {
-				prevStep = step;
+				prevStep = s;
 			}
 
 			return prevStep;
@@ -32,6 +32,8 @@ const LessonSectionPreview: FC<LessonSectionPreviewProps> = (props) => {
 
 		return { nextStep: step, prevStep: prevStep };
 	}, [steps, step]);
+
+	console.log(prevStep, nextStep);
 
 	return (
 		<div className={className}>
