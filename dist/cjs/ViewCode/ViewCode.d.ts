@@ -1,11 +1,6 @@
-import { FC } from "react";
+import type { FC } from "react";
+import type { ViewCodeProps } from "./types";
 import "highlight.js/styles/github.css";
-import "./style.css";
-export interface ViewCodeProps {
-    nextValue: string;
-    prevValue?: string;
-    startNumber?: number;
-    hideNumber?: string;
-}
+import "./styles.styl";
 declare const ViewCode: FC<ViewCodeProps>;
 export default ViewCode;

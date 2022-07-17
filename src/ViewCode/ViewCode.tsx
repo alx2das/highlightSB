@@ -1,38 +1,51 @@
-import React, { FC } from "react";
-import "highlight.js/styles/github.css";
+import type { FC } from "react";
+import type { ViewCodeProps, IndexesData } from "./types";
 
-import { searchMarkers, lineNumbering } from "./helpers";
+import React, { useMemo } from "react";
+import { searchMarkers, lineNumbering, indexesMarkedLines } from "./utils";
 import ViewCodeLine from "./ViewCodeLine";
-import "./ViewCode.styl";
 
-export interface ViewCodeProps {
-	nextValue: string;
-	prevValue?: string;
-	startNumber?: number;
-	hideNumber?: string;
-}
+import "highlight.js/styles/github.css";
+import "./styles.styl";
 
 const ViewCode: FC<ViewCodeProps> = (props) => {
 	const {
 		nextValue,
-		prevValue = "",
+		prevValue,
 		startNumber = 1,
-		hideNumber = false,
+		hideNumber,
+		minify,
+		minifyCountSpace,
 	} = props;
 
-	const markers = searchMarkers(prevValue, nextValue);
-	const htmlLines = lineNumbering(nextValue);
+	const isMobile = minify;
+	const count = (minifyCountSpace && parseInt("" + minifyCountSpace)) || 2;
+
+	const htmlLines = useMemo<string[]>(() => {
+		return lineNumbering(nextValue);
+	}, [nextValue]);
+
+	const { indexes, markers } = useMemo<IndexesData>(() => {
+		const markers = searchMarkers(nextValue, prevValue);
+		const indexes = htmlLines.map((_, index) => index);
+
+		if (isMobile && Object.keys(markers).length) {
+			return indexesMarkedLines(markers, htmlLines.length, count);
+		}
+
+		return { indexes, markers };
+	}, [isMobile, htmlLines, nextValue, prevValue, count]);
 
 	return (
 		<div className="view-code">
 			<pre>
 				<code>
-					{htmlLines.map((line, index) => (
+					{indexes.map((i) => (
 						<ViewCodeLine
-							key={`${index}-line`}
-							content={line}
-							number={startNumber + index}
-							marker={markers[index] || {}}
+							key={htmlLines[i] + i}
+							number={startNumber + i}
+							content={htmlLines[i]}
+							marker={markers[i] || {}}
 							hideNumber={Boolean(hideNumber)}
 						/>
 					))}

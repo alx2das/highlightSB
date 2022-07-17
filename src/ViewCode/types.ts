@@ -1,8 +1,32 @@
+export interface ViewCodeProps {
+	nextValue: string;
+	prevValue?: string;
+	startNumber?: number;
+	hideNumber?: boolean;
+	minify?: boolean;
+	minifyCountSpace?: number;
+}
+
+export interface ViewCodeLineProps {
+	number: number;
+	content: string;
+	marker: Marker;
+	hideNumber: boolean;
+}
+
 export type Marker = {
-	added?: boolean;
-	removed?: boolean;
+	added?: true;
+	removed?: true;
+	updated?: true;
+	minify_p?: true;
+	minify_n?: true;
 };
 
-export type Markers = {
-	[line: number]: Marker | undefined;
+export type MapMarkers = {
+	[lineNumber: string]: Marker | undefined;
+};
+
+export type IndexesData = {
+	indexes: number[];
+	markers: MapMarkers;
 };
