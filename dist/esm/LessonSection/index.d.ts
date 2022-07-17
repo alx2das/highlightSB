@@ -1,2 +1,2 @@
 export { default as LessonSection } from "./LessonSection";
-export * from "./types";
+export { LessonSectionProps } from "./types";

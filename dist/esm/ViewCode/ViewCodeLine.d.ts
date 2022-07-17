@@ -1,10 +1,4 @@
-import { FC } from "react";
-import { Marker } from "./types";
-interface Props {
-    content: string;
-    number: number;
-    marker: Marker;
-    hideNumber: boolean;
-}
-declare const ViewCodeLine: FC<Props>;
+import type { FC } from "react";
+import type { ViewCodeLineProps } from "./types";
+declare const ViewCodeLine: FC<ViewCodeLineProps>;
 export default ViewCodeLine;
