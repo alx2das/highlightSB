@@ -6,6 +6,7 @@ json("./queries.json")
 $media-queries = {
 	mobile: queryMobile
 	tablet: queryTablet
+	desktop: queryDesktop
 }
 
 
@@ -15,6 +16,10 @@ media(breakpoints)
 	conditions = ()
 
 	for breakpoint in breakpoints
+		// Checking existence of breakpoint
+		if ($media-queries[breakpoint] == null)
+			error('Incorrect breakpoint! (' + breakpoint +')')
+
 		push(conditions, $media-queries[breakpoint])
 
 	conditions = join(', ', conditions)

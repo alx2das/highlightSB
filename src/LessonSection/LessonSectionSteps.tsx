@@ -26,7 +26,7 @@ const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 				behavior: "smooth",
 			});
 		},
-		[isMobile],
+		[isMobile]
 	);
 
 	return (
@@ -56,16 +56,16 @@ const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 							{_step.comment && (
 								<div className="inner-comment">{_step.comment}</div>
 							)}
-						</div>
 
-						{isMobile && (
-							<LessonSectionPreview
-								className="tutorial-steps-preview-minify"
-								steps={steps}
-								step={_step}
-								minify
-							/>
-						)}
+							{isMobile && (
+								<LessonSectionPreview
+									className="tutorial-steps-preview _small"
+									steps={steps}
+									step={_step}
+									minify
+								/>
+							)}
+						</div>
 					</Fragment>
 				))}
 			</div>

@@ -26,13 +26,7 @@
 			top 0
 			left 0
 
-	&._minify_prev
-		border-top 2px solid rgba(167,173,188, .6)
-
-	&._minify_next
-		border-bottom 2px solid rgba(167,173,188, .6)
-
-	/* ADDED */
+	// ADDED
 	&._added
 		background rgba(32,212,98, .08)
 
@@ -40,7 +34,7 @@
 			bottom 0
 			border-left 4px solid #205DD4
 
-	/* REMOVED */
+	// REMOVED
 	&._removed
 		&._number::before
 			transform translateY(-50%)
@@ -48,10 +42,19 @@
 			border-left 10px solid #D42020
 			border-bottom 5px solid transparent
 
-	/* UPDATED */
+	// UPDATED
 	&._updated
 		background rgba(32,93,212, .08)
 
 		&._number::before
 			bottom 0
 			border-left 4px solid #205DD4
+
+	// TRUNCATE
+	&._truncate
+		grid-column 1 / 3
+		display flex
+		align-items center
+		height 22px
+		color #A7ADBC
+		background rgba(165,165,165, .2)

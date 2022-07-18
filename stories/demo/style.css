@@ -5,6 +5,7 @@
 	-------------------------------------------------- */
 :root {
 	--text-color: rgba(49, 62, 98, 0.8);
+	--layout-padding-x: 40px;
 }
 
 /*  STYLES
@@ -21,6 +22,6 @@ body {
 .layout {
 	background: #fff;
 	border-radius: 20px;
-	padding: 80px 40px 40px;
+	padding: 80px var(--layout-padding-x) 40px;
 	max-width: 1100px;
 }

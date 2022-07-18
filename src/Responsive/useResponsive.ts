@@ -1,14 +1,16 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { queryMobile, queryTablet } from "./queries.json";
+import { queryMobile, queryTablet, queryDesktop } from "./queries.json";
 
 const mediaQueries = {
 	mediaMobile: window.matchMedia(queryMobile),
-	mediaTablet: window.matchMedia(queryTablet)
+	mediaTablet: window.matchMedia(queryTablet),
+	mediaDesktop: window.matchMedia(queryDesktop)
 };
 
 const getResponsive = () => ({
 	isMobile: mediaQueries.mediaMobile.matches,
-	isTablet: mediaQueries.mediaTablet.matches
+	isTablet: mediaQueries.mediaTablet.matches,
+	isDesktop: mediaQueries.mediaDesktop.matches
 });
 
 const useResponsive = () => {

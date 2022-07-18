@@ -4,12 +4,12 @@ import type { LessonSectionPreviewProps, Step } from "./types";
 import React, { useMemo } from "react";
 import LessonSectionSource from "./LessonSectionSource";
 import ViewCode from "../ViewCode/ViewCode";
+import "./LessonSectionPreview.styl";
 
 const LessonSectionPreview: FC<LessonSectionPreviewProps> = (props) => {
 	const {
 		step,
 		steps,
-
 		className,
 		minify,
 	} = props;
