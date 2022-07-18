@@ -7,12 +7,7 @@ import ViewCode from "../ViewCode/ViewCode";
 import "./LessonSectionPreview.styl";
 
 const LessonSectionPreview: FC<LessonSectionPreviewProps> = (props) => {
-	const {
-		step,
-		steps,
-		className,
-		minify,
-	} = props;
+	const { step, steps, className, minify } = props;
 
 	const { prevStep, nextStep } = useMemo(() => {
 		if (!step) {

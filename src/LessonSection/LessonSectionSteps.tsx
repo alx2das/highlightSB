@@ -54,7 +54,9 @@ const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 
 							<div className="inner-block" onClick={(e) => handleSelect(e)}>
 								<div className="inner-title">{_step.title}</div>
-								{_step.description && <div className="inner-description">{_step.description}</div>}
+								{_step.description && (
+									<div className="inner-description">{_step.description}</div>
+								)}
 							</div>
 
 							{_step.comment && (

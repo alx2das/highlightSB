@@ -1,69 +1,65 @@
 {
-  "name": "lesson-swiftbook",
-  "version": "1.0.0",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "files": [
-    "dist"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build": "rollup -c",
-    "_build": "rm -rf /dist && npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
-    "start": "start-storybook -p 6006",
-    "demo": "build-storybook -o demo/",
-    "prettier": "prettier --write {src,stories}/**/*.*"
-  },
-  "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
-  "dependencies": {
-    "classnames": "^2.3.1",
-    "diff": "^5.1.0",
-    "highlight.js": "^11.5.1",
-    "react-waypoint": "^10.3.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.18.6",
-    "@rollup/plugin-commonjs": "^22.0.1",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@rollup/plugin-typescript": "^8.3.3",
-    "@storybook/addon-actions": "^6.5.9",
-    "@storybook/addon-essentials": "^6.5.9",
-    "@storybook/addon-interactions": "^6.5.9",
-    "@storybook/addon-links": "^6.5.9",
-    "@storybook/builder-webpack5": "^6.5.9",
-    "@storybook/manager-webpack5": "^6.5.9",
-    "@storybook/react": "^6.5.9",
-    "@storybook/testing-library": "^0.0.13",
-    "@types/diff": "^5.0.2",
-    "@types/node": "^18.0.3",
-    "@types/react": "^17.0.47",
-    "@types/react-dom": "^17.0.17",
-    "babel-loader": "^8.2.5",
-    "eslint-config-prettier": "^8.5.0",
-    "prettier": "^2.7.1",
-    "prettier-plugin-stylus": "^0.0.1-beta.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "rollup": "^2.77.0",
-    "rollup-plugin-import-css": "^3.0.3",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-stylus-css-modules": "^1.5.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "stylus": "^0.58.1",
-    "stylus-loader": "^7.0.0",
-    "typescript": "^4.7.4"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest",
-      "prettier"
-    ]
-  }
+	"name": "lesson-swiftbook",
+	"version": "1.0.0",
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
+	"files": [
+		"dist"
+	],
+	"license": "MIT",
+	"scripts": {
+		"build": "rollup -c",
+		"start": "start-storybook -p 6006",
+		"demo": "build-storybook -o demo/",
+		"prettier": "prettier --write ."
+	},
+	"peerDependencies": {
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2"
+	},
+	"dependencies": {
+		"classnames": "^2.3.1",
+		"diff": "^5.1.0",
+		"highlight.js": "^11.5.1",
+		"react-waypoint": "^10.3.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.18.6",
+		"@rollup/plugin-commonjs": "^22.0.1",
+		"@rollup/plugin-json": "^4.1.0",
+		"@rollup/plugin-node-resolve": "^13.3.0",
+		"@rollup/plugin-typescript": "^8.3.3",
+		"@storybook/addon-actions": "^6.5.9",
+		"@storybook/addon-essentials": "^6.5.9",
+		"@storybook/addon-interactions": "^6.5.9",
+		"@storybook/addon-links": "^6.5.9",
+		"@storybook/builder-webpack5": "^6.5.9",
+		"@storybook/manager-webpack5": "^6.5.9",
+		"@storybook/react": "^6.5.9",
+		"@storybook/testing-library": "^0.0.13",
+		"@types/diff": "^5.0.2",
+		"@types/node": "^18.0.3",
+		"@types/react": "^17.0.47",
+		"@types/react-dom": "^17.0.17",
+		"babel-loader": "^8.2.5",
+		"eslint-config-prettier": "^8.5.0",
+		"prettier": "^2.7.1",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"rollup": "^2.77.0",
+		"rollup-plugin-import-css": "^3.0.3",
+		"rollup-plugin-peer-deps-external": "^2.2.4",
+		"rollup-plugin-stylus-css-modules": "^1.5.0",
+		"rollup-plugin-terser": "^7.0.2",
+		"stylus": "^0.58.1",
+		"stylus-loader": "^7.0.0",
+		"typescript": "^4.7.4"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest",
+			"prettier"
+		]
+	}
 }

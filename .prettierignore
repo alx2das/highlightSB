@@ -1,0 +1,7 @@
+**/.git
+**/.storybook
+**/demo
+**/dist
+**/node_modules
+**/*.styl
+**/*.lock

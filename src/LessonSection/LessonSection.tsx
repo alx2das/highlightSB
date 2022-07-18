@@ -27,7 +27,9 @@ const LessonSection: FC<LessonSectionProps> = (props) => {
 					<div className="inner-title">{title}</div>
 					<div className="inner-subtitle">{subtitle}</div>
 
-					{description && <div className="inner-description">{description}</div>}
+					{description && (
+						<div className="inner-description">{description}</div>
+					)}
 				</div>
 
 				<div className="section-source">

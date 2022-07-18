@@ -7,7 +7,7 @@ import languageSwift from "highlight.js/lib/languages/swift";
 
 export function searchMarkers(
 	nextValue: string,
-	prevValue?: string,
+	prevValue?: string
 ): MapMarkers {
 	if (!prevValue) {
 		return {};
@@ -32,7 +32,7 @@ export function searchMarkers(
 
 			return accum;
 		},
-		{ markers: {}, number: 0 },
+		{ markers: {}, number: 0 }
 	);
 
 	return markers;
@@ -53,9 +53,7 @@ export function searchMarkers(
 	}
 }
 
-export function lineNumbering(
-	value: string
-): string[] {
+export function lineNumbering(value: string): string[] {
 	hl.registerLanguage("swift", languageSwift);
 
 	const html = hl.highlightAuto(value).value;
@@ -89,7 +87,7 @@ export function lineNumbering(
 export function indexesMarkedLines(
 	markers: MapMarkers,
 	maxLines,
-	count = 3,
+	count = 3
 ): IndexesData {
 	const _indexes = Object.keys(markers);
 	const _count = count < 2 ? 2 : count;
@@ -136,7 +134,7 @@ export function indexesMarkedLines(
 
 			return accum;
 		},
-		{ markers: markers, indexes: checkIndexes },
+		{ markers: markers, indexes: checkIndexes }
 	);
 
 	function createMarker({ markers, type, index }) {
