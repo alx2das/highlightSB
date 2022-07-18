@@ -5,6 +5,8 @@ import { diffLines } from "diff/lib/diff/line";
 import hl from "highlight.js/lib/core";
 import languageSwift from "highlight.js/lib/languages/swift";
 
+hl.registerLanguage("swift", languageSwift);
+
 export function searchMarkers(
 	nextValue: string,
 	prevValue?: string
@@ -54,9 +56,7 @@ export function searchMarkers(
 }
 
 export function lineNumbering(value: string): string[] {
-	hl.registerLanguage("swift", languageSwift);
-
-	const html = hl.highlightAuto(value).value;
+	const html = hl.highlight(value, { language: "swift" }).value;
 	const htmlLines = getLines(html);
 
 	if (!htmlLines) {

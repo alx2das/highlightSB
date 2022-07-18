@@ -11,13 +11,24 @@ yarn demo       // Сборка Storybook для демонстрации
 yarn prettier   // Нормальзиция и форматирование кода
 ```
 
+## Интеграция
+Для локальной отладки интеграции можно воспользоваться [npm-link](https://docs.npmjs.com/cli/v8/commands/npm-link),
+далее рекомендуется опубликовать проект в приватном npm.
+
+```jsx
+import React from "react";
+import { LessonSection, ViewCode } from "lesson-swiftbook";
+
+// ...
+```
+
 ## Документация
 
 ### Пример использования:
 
 ```jsx
 import React from "react";
-import { LessonSection, ViewCode } from "highlightSB";
+import { LessonSection, ViewCode } from "lesson-swiftbook";
 
 const ExampleReactComponent = () => {
     // Секции уроков
@@ -29,7 +40,7 @@ const ExampleReactComponent = () => {
     return (
         <ExampleLayout>
             {sections.map(({ id, ...section }) => (
-                <LessonSection key={id} {...section} />
+                <LessonSection key={id} { ...section } />
             ))}
         </ExampleLayout>
     );
@@ -42,31 +53,31 @@ const ExampleReactComponent = () => {
 import { ReactNode } from "react";
 
 interface LessonSection {
-	// Заголовки и описание секции
-	title: string;
-	subtitle: string;
-	description?: string | ReactNode;
+    // Заголовки и описание секции
+    title: string;
+    subtitle: string;
+    description?: string | ReactNode;
 
-	// Картинка или видео секции
-	// `sourceNode` - имеет высший приоритет
-	sourceUrl?: string;
-	sourceType?: string;
-	sourceNode?: ReactNode;
+    // Картинка или видео секции
+    // `sourceNode` - имеет высший приоритет
+    sourceUrl?: string;
+    sourceType?: string;
+    sourceNode?: ReactNode;
 
-	// Шаги секции
-	steps?: {
-		title: string;
-		description?: string | ReactNode;
-		comment?: string | ReactNode;
+    // Шаги секции
+    steps?: {
+        title: string;
+        description?: string | ReactNode;
+        comment?: string | ReactNode;
 
-		sourceUrl?: string;
-		sourceType?: string;
-		sourceNode?: ReactNode;
+        sourceUrl?: string;
+        sourceType?: string;
+        sourceNode?: ReactNode;
 
-		// Сравнение кода происходит для шагов с одинаковым `fileName`
-		fileName?: string;
-		fileContent?: string;
-	}[];
+        // Сравнение кода происходит для шагов с одинаковым `fileName`
+        fileName?: string;
+        fileContent?: string;
+    }[];
 }
 ```
 
@@ -80,12 +91,12 @@ interface LessonSection {
 
 ```json
 {
-	"steps": [
-		{
-			"fileName": "example.swift",
-			"fileContent": "import Meta;\nimport Data;"
-		}
-	]
+  "steps": [
+    {
+      "fileName": "example.swift",
+      "fileContent": "import Meta;\nimport Data;"
+    }
+  ]
 }
 ```
 
@@ -99,11 +110,11 @@ interface LessonSection {
 
 ```typescript
 interface ViewCode {
-	nextValue: string; // Отображаемый код
-	prevValue?: string; // Предыдущий код для сравнения
-	startNumber?: number; // С какого номера строки начать нумерацию
-	hideNumber?: boolean; // Скрыть нумерацию строк
-	minify?: boolean; // Выводить только измененный код
-	minifyCountSpace?: number; // Свободное пространство при минификации
+    nextValue: string; // Отображаемый код
+    prevValue?: string; // Предыдущий код для сравнения
+    startNumber?: number; // С какого номера строки начать нумерацию
+    hideNumber?: boolean; // Скрыть нумерацию строк
+    minify?: boolean; // Выводить только измененный код
+    minifyCountSpace?: number; // Свободное пространство при минификации
 }
 ```

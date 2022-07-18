@@ -11,12 +11,19 @@ const packageJson = require("./package.json");
 
 export default {
 	input: "src/index.ts",
+	// external: [
+	// 	"classnames",
+	// 	"diff",
+	// 	"highlight.js",
+	// 	"react-waypoint"
+	// ],
 	output: [
 		{
 			file: packageJson.main,
 			format: "cjs",
 			sourcemap: true,
-			name: "react-lib",
+			name: packageJson.name,
+			strict: false,
 		},
 		{
 			file: packageJson.module,
