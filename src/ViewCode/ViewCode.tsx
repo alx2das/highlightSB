@@ -6,7 +6,7 @@ import { searchMarkers, lineNumbering, indexesMarkedLines } from "./utils";
 import ViewCodeLine from "./ViewCodeLine";
 
 import "highlight.js/styles/github.css";
-import "./styles.styl";
+import "./ViewCode.styl";
 
 const ViewCode: FC<ViewCodeProps> = (props) => {
 	const {

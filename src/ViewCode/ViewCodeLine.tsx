@@ -3,6 +3,7 @@ import type { ViewCodeLineProps } from "./types";
 
 import React from "react";
 import cn from "classnames";
+import "./ViewCodeLine.styl";
 
 const CodeLinePrev = (
 	<span className="vc-line _number _truncate">

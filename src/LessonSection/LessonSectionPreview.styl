@@ -1,4 +1,4 @@
-@require "../Responsive/styles.styl"
+@require "../Responsive"
 
 
 // STEPS PREVIEW CODE & IMAGE
@@ -16,15 +16,16 @@
 		top 10px
 		height calc(100vh - 20px)
 
-	& > div
-		grid-area 1 / 1
-
 	&._small
 		margin-top 40px
 		margin-right calc(-1 * var(--layout-padding-x-mobile))
 		line-height 20px
 		font-size 12px
 		border-radius 16px 0 0 16px
+
+	& > div
+		grid-area 1 / 1
+
 
 .tutorial-steps-preview__name
 	margin 12px auto 28px 20px
@@ -35,15 +36,17 @@
 	font-size 14px
 	color #A7ADBC
 
+
 .tutorial-steps-preview__image
 	margin 50px 0
 	text-align center
 
+	+media(mobile tablet)
+		margin 50px auto 0
+
 	img
 		max-width 100%
 
-	+media(mobile tablet)
-		margin 50px auto 0
 
 .tutorial-steps-preview__video
 	display flex

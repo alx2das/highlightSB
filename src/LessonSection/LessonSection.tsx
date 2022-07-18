@@ -5,7 +5,7 @@ import React from "react";
 import LessonSectionSource from "./LessonSectionSource";
 import LessonSectionSteps from "./LessonSectionSteps";
 
-import "./styles.styl";
+import "./LessonSection.styl";
 
 const LessonSection: FC<LessonSectionProps> = (props) => {
 	const {

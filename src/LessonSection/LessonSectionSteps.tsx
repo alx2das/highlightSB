@@ -7,6 +7,8 @@ import { Waypoint } from "react-waypoint";
 import LessonSectionPreview from "./LessonSectionPreview";
 import useResponsive from "../Responsive";
 
+import "./LessonSectionSteps.styl";
+
 const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 	const { steps } = props;
 	const [step, setStep] = useState<Step | undefined>(steps[0]);
@@ -51,7 +53,7 @@ const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 							)}
 
 							<div className="inner-block" onClick={(e) => handleSelect(e)}>
-								<h4 className="inner-title">{_step.title}</h4>
+								<div className="inner-title">{_step.title}</div>
 								{_step.description && <div className="inner-description">{_step.description}</div>}
 							</div>
 
