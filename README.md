@@ -44,29 +44,27 @@ interface LessonSection {
     // Заголовки и описание секции
     title: string;
     subtitle: string;
-    description: string | ReactNode;
-    
+    description?: string | ReactNode;
+
     // Картинка или видео секции
     // `sourceNode` - имеет высший приоритет
     sourceUrl?: string;
-    sourceType?: "image" | "video";
+    sourceType?: string;
     sourceNode?: ReactNode;
-
+    
     // Шаги секции
     steps?: {
-        id: string;
         title: string;
         description?: string | ReactNode;
         comment?: string | ReactNode;
-        
-        // Данные для отображения кода
+
+        sourceUrl?: string;
+        sourceType?: string;
+        sourceNode?: ReactNode;
+
+        // Сравнение кода происходит для шагов с одинаковым `fileName`
         fileName?: string;
         fileContent?: string;
-
-        // Картинка или видео шага
-        sourceUrl?: string;
-        sourceType?: "image" | "video";
-        sourceNode?: ReactNode;
     }[];
 }
 ```
@@ -91,12 +89,18 @@ interface LessonSection {
 
 ### Посветка и сравнение кода `<ViewCode />`
 
+Поддерживает только SWIFT-код.
+- Для поддежки дополнительных язык необходимо погрузить язык как указано в [файле с утилитами](https://github.com/alx2das/highlightSB/blob/main/src/ViewCode/utils.ts#L59). 
+
+Сравнение строк происходит построчно.
+
 ```typescript
 interface ViewCode {
     nextValue: string;              // Отображаемый код
-    prevValue?: string;             // Предыдущий код для сравнения изменений
+    prevValue?: string;             // Предыдущий код для сравнения
     startNumber?: number;           // С какого номера строки начать нумерацию
-    hideNumber?: boolean;           // Выводить или нет номера строк
-    minify?: boolean;
+    hideNumber?: boolean;           // Скрыть нумерацию строк
+    minify?: boolean;               // Выводить только измененный код
+    minifyCountSpace?: number;      // Свободное пространство при минификации
 }
 ```

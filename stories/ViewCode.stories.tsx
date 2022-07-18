@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { LayoutViewCode } from "./demo/demo.Layouts";
-import { SimpleCodeOne, SimpleCodeTwo, SimpleCodeThree } from "./demo/demo.Data";
+import { BigCodeOne, BigCodeTwo, SimpleCodeOne, SimpleCodeTwo, SimpleCodeThree } from "./demo/demo.Data";
 
 import { ViewCode } from "../src";
 
@@ -18,17 +18,25 @@ const Template: ComponentStory<typeof ViewCode> = (args) => (
 
 export const First = Template.bind({});
 First.args = {
-    nextValue: SimpleCodeOne
+    prevValue: BigCodeOne,
+    nextValue: BigCodeTwo,
+    minify: true,
+    minifyCountSpace: 5
 };
 
 export const Second = Template.bind({});
 Second.args = {
-    nextValue: SimpleCodeTwo,
-    prevValue: SimpleCodeOne
+    nextValue: SimpleCodeOne
 };
 
 export const Third = Template.bind({});
 Third.args = {
+    nextValue: SimpleCodeTwo,
+    prevValue: SimpleCodeOne
+};
+
+export const Fourth = Template.bind({});
+Fourth.args = {
     nextValue: SimpleCodeThree,
     prevValue: SimpleCodeTwo,
     startNumber: 10
