@@ -10,11 +10,13 @@ import useResponsive from "../Responsive";
 const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 	const { steps } = props;
 	const [step, setStep] = useState<Step | undefined>(steps[0]);
-	const { isMobile } = useResponsive();
+	const { isMobile, isTablet } = useResponsive();
+
+	const isResponsive = isMobile || isTablet;
 
 	const handleSelect = useCallback(
 		(event: React.MouseEvent<HTMLDivElement>) => {
-			if (isMobile) {
+			if (isResponsive) {
 				return;
 			}
 
@@ -26,7 +28,7 @@ const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 				behavior: "smooth",
 			});
 		},
-		[isMobile]
+		[isResponsive]
 	);
 
 	return (
@@ -36,10 +38,10 @@ const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 					<Fragment key={_step.title + index}>
 						<div
 							className={cn("tutorial-steps__item", {
-								_active: step?.title === _step.title || isMobile,
+								_active: step?.title === _step.title || isResponsive,
 							})}
 						>
-							{!isMobile && (
+							{!isResponsive && (
 								<Waypoint
 									topOffset="10%"
 									bottomOffset="85%"
@@ -50,14 +52,14 @@ const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 
 							<div className="inner-block" onClick={(e) => handleSelect(e)}>
 								<h4 className="inner-title">{_step.title}</h4>
-								{_step.description && <div>{_step.description}</div>}
+								{_step.description && <div className="inner-description">{_step.description}</div>}
 							</div>
 
 							{_step.comment && (
 								<div className="inner-comment">{_step.comment}</div>
 							)}
 
-							{isMobile && (
+							{isResponsive && (
 								<LessonSectionPreview
 									className="tutorial-steps-preview _small"
 									steps={steps}
@@ -70,7 +72,7 @@ const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 				))}
 			</div>
 
-			{!isMobile && (
+			{!isResponsive && (
 				<LessonSectionPreview
 					className="tutorial-steps-preview"
 					steps={steps}

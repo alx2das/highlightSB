@@ -7,20 +7,38 @@
 	column-gap 80px
 
 	+media(mobile tablet)
-		grid-template-columns 1fr
+		grid-template-columns minmax(0, 1fr)
 
 	.section-info
-		line-height 28px
-		font-size 18px
-
 		.inner-title
 			margin-bottom 10px
+			line-height 28px
+			font-weight 500
+			font-size 18px
+
+			+media(mobile tablet)
+				line-height 24px
+				font-size 14px
 
 		.inner-subtitle
 			margin-bottom 20px
+			line-height 38px
+			font-weight 700
+			font-size 28px
+
+			+media(mobile tablet)
+				line-height 32px
+				font-weight 500
+				font-size 24px
 
 		.inner-description
 			margin-bottom 10px
+			line-height 28px
+			font-size 18px
+
+			+media(mobile tablet)
+				line-height 22px
+				font-size 14px
 
 			p
 				margin-bottom 20px
@@ -39,7 +57,7 @@
 	width 100%
 
 	+media(mobile tablet)
-		grid-template-columns 1fr
+		grid-template-columns minmax(0, 1fr)
 
 
 .tutorial-steps
@@ -81,6 +99,9 @@
 	// step title
 	.inner-title
 		margin-bottom 20px
+
+	.inner-description
+		overflow-wrap break-word
 
 	// step comment
 	.inner-comment

@@ -1,5 +1,5 @@
 import { useMemo, FC } from "react";
-import "./style.css";
+import "./style.styl";
 
 export const LayoutViewCode: FC = ({ children }) => {
 	const styles = useMemo(() => ({}), []);

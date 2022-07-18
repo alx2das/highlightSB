@@ -24,12 +24,10 @@ const LessonSection: FC<LessonSectionProps> = (props) => {
 		<>
 			<section className="sb-lesson-section">
 				<div className="section-info">
-					<h4 className="inner-title">{title}</h4>
-					<h2 className="inner-subtitle">{subtitle}</h2>
+					<div className="inner-title">{title}</div>
+					<div className="inner-subtitle">{subtitle}</div>
 
-					{description && (
-						<div className="inner-description">{description}</div>
-					)}
+					{description && <div className="inner-description">{description}</div>}
 				</div>
 
 				<div className="section-source">
