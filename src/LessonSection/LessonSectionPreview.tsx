@@ -3,7 +3,7 @@ import type { LessonSectionPreviewProps, Step } from "./types";
 
 import React, { useMemo } from "react";
 import LessonSectionSource from "./LessonSectionSource";
-import ViewCode from "../ViewCode";
+import ViewCode from "../ViewCode/ViewCode";
 
 const LessonSectionPreview: FC<LessonSectionPreviewProps> = (props) => {
 	const {
