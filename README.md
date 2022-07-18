@@ -62,8 +62,6 @@ interface LessonSection {
         // Данные для отображения кода
         fileName?: string;
         fileContent?: string;
-        fileMarkers?: number[];
-        fileLanguage?: string; // default `swift`
 
         // Картинка или видео шага
         sourceUrl?: string;
@@ -79,17 +77,13 @@ interface LessonSection {
 Текущий шаг пытается найти предыдущий с таким же `fileName` для того что бы сравнить 2 `fileContent`.
 По этому `fileContent` для первого шага будет без подсветки изменненных строк.
 
-Так же есть дополнительное свойство `fileMarkers`, в него можно передать массив номеров для подсветки строк. 
-Нумерация начинается с `1`. 
-
 Например:
 ```json
 {
   "steps": [
     {
       "fileName": "example.swift",
-      "fileContent": "import Meta;\nimport Data;",
-      "fileMarkers": [1, 2]
+      "fileContent": "import Meta;\nimport Data;"
     }
   ]
 }
@@ -101,9 +95,8 @@ interface LessonSection {
 interface ViewCode {
     nextValue: string;              // Отображаемый код
     prevValue?: string;             // Предыдущий код для сравнения изменений
-    language?: string | string[];   // Какой язык используется
     startNumber?: number;           // С какого номера строки начать нумерацию
     hideNumber?: boolean;           // Выводить или нет номера строк
-    markers?: number[];             // Номера строк которые нужно подсветить
+    minify?: boolean;
 }
 ```
