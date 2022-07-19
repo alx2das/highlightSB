@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+// @ts-ignore
 import { queryMobile, queryTablet, queryDesktop } from "./queries.json";
 
 const mediaQueries = {
