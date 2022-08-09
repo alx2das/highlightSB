@@ -1,44 +1,39 @@
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import resolve from "@rollup/plugin-node-resolve";
-import commonjs from "@rollup/plugin-commonjs";
+import replace from '@rollup/plugin-replace';
 import typescript from "@rollup/plugin-typescript";
-import { terser } from "rollup-plugin-terser";
-import external from "rollup-plugin-peer-deps-external";
-import stylusCssModules from "rollup-plugin-stylus-css-modules";
-import css from "rollup-plugin-import-css";
 import json from "@rollup/plugin-json";
+import { uglify } from "rollup-plugin-uglify";
+import commonjs from "@rollup/plugin-commonjs";
+import styles from "rollup-plugin-styles";
 
-const packageJson = require("./package.json");
 
 export default {
-	input: "src/index.ts",
-	// external: [
-	// 	"classnames",
-	// 	"diff",
-	// 	"highlight.js",
-	// 	"react-waypoint"
-	// ],
-	output: [
-		{
-			file: packageJson.main,
-			format: "cjs",
-			sourcemap: true,
-			name: packageJson.name,
-			strict: false,
-		},
-		{
-			file: packageJson.module,
-			format: "esm",
-			sourcemap: true,
-		},
-	],
+	input: "src/lib.tsx",
+	output: {
+		name: "createLessonSection",
+		file: "./dist/lib.js",
+		format: "iife",
+		sourcemap: true,
+		assetFileNames: "[name][extname]",
+	},
 	plugins: [
-		external(),
-		resolve(),
+		peerDepsExternal(),
+		resolve({
+			preferBuiltins: true,
+			mainFields: ['browser']
+		}),
 		commonjs(),
+		replace({
+			preventAssignment: false,
+			"process.env.NODE_ENV": JSON.stringify("production")
+		}),
 		typescript({ tsconfig: "./tsconfig.json" }),
 		json(),
-		css(),
-		stylusCssModules(),
-		terser(),
-	],
+		styles({
+			mode: "extract",
+			minimize: true
+		}),
+		uglify()
+	]
 };

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- стили для демонстрации -->
+    <style>
+        @font-face {
+            font-family: "Gotham Pro";
+            src: url("./stories/demo/fonts/GothamPro-Bold.woff2") format("woff2");
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "Gotham Pro";
+            src: url("./stories/demo/fonts/GothamPro-Medium.woff2") format("woff2");
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "Gotham Pro";
+            src: url("./stories/demo/fonts/GothamPro.woff2") format("woff2");
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            vertical-align: baseline;
+        }
+
+        /* HTML5 display-role reset for older browsers */
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+
+        body {
+            line-height: normal;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        blockquote,
+        q {
+            quotes: none;
+        }
+
+        blockquotebefore,
+        blockquoteafter,
+        qbefore,
+        qafter {
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+        }
+
+
+        :root {
+            --text-color: rgba(49, 62, 98, .8);
+            --layout-padding-x: 40px;
+            --layout-padding-x-mobile: 20px;
+        }
+
+        body {
+            padding: 45px;
+            font-family: "Gotham Pro";
+            color: var(--text-color);
+            background: #f2f4f5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .layout {
+            background: #fff;
+            border-radius: 20px;
+            padding: 80px var(--layout-padding-x) 40px;
+            max-width: 1100px;
+        }
+    </style>
+
+    <link type="text/css" rel="stylesheet" href="./dist/lib.css">
+    <script src="./dist/lib.js"></script>
+</head>
+<body>
+    <div class="layout" id="root"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            var selector = document.querySelector("#root");
+
+            createLessonSection(
+                selector,
+                {
+                    title: "Section 1",
+                    subtitle: "Respond to Change Notifications",
+                    description: "If a user changes their reminders inside another app, you want those changes to appear inside Today automatically.",
+                    sourceUrl: "https://docs-assets.developer.apple.com/published/e0c9d4d6c1bf137d56eb95b43b9c175f/UIK_130-010-intro.png",
+                    sourceType: "image",
+                    sourceNode: undefined,
+
+                    steps: [
+                        {
+                            title: "Step 1",
+                            description:
+                                "In ReminderListViewController+DataSource.swift, create a function named reminderStoreChanged() that has an empty Task.",
+                            comment: undefined,
+
+                            sourceUrl: undefined,
+                            sourceType: undefined,
+                            sourceNode: undefined,
+
+                            fileName: "SimpleCodeOne.swift",
+                            fileContent: `class Counter {
+    var count = 0
+    func increment() {
+        count += 1
+    }
+    func increment(by amount: Int) {
+        count += amount
+    }
+    func reset() {
+        count = 0
+    }
+}`,
+                        },
+                        {
+                            title: "Step 2",
+                            description:
+                                "In ReminderListViewController+DataSource.swift, create a function named reminderStoreChanged() that has an empty Task.",
+                            comment: undefined,
+
+                            sourceUrl: undefined,
+                            sourceType: undefined,
+                            sourceNode: undefined,
+
+                            fileName: "SimpleCodeOne.swift",
+                            fileContent: `class Counter {
+    var count = 0
+    func increment() {
+        count += 2
+    }
+    func increment(by amount: Int) {
+        count += amount
+    }
+    func reset() {
+        count = 0
+    }
+}`,
+                        },
+                    ]
+                }
+            );
+        });
+    </script>
+</body>
+</html>

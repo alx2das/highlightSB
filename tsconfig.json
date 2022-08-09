@@ -13,7 +13,7 @@
 		"resolveJsonModule": true,
 		"noImplicitAny": false,
 		"noUnusedLocals": true,
-		"outDir": "dist/esm",
+		"outDir": "dist",
 		"sourceMap": true,
 		"strict": true,
 		"target": "ES6"

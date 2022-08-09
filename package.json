@@ -1,8 +1,7 @@
 {
 	"name": "lesson-swiftbook",
 	"version": "1.0.0",
-	"main": "dist/cjs/index.js",
-	"module": "dist/esm/index.js",
+	"main": "dist/lib.js",
 	"private": false,
 	"files": [
 		"dist",
@@ -16,14 +15,12 @@
 		"demo": "build-storybook -o demo/",
 		"prettier": "prettier --write ."
 	},
-	"peerDependencies": {
-		"react": "^17.0.2",
-		"react-dom": "^17.0.2"
-	},
 	"dependencies": {
 		"classnames": "^2.3.1",
 		"diff": "^5.1.0",
 		"highlight.js": "^11.5.1",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
 		"react-waypoint": "^10.3.0"
 	},
 	"devDependencies": {
@@ -31,6 +28,7 @@
 		"@rollup/plugin-commonjs": "^22.0.1",
 		"@rollup/plugin-json": "^4.1.0",
 		"@rollup/plugin-node-resolve": "^13.3.0",
+		"@rollup/plugin-replace": "^4.0.0",
 		"@rollup/plugin-typescript": "^8.3.3",
 		"@storybook/addon-actions": "^6.5.9",
 		"@storybook/addon-essentials": "^6.5.9",
@@ -50,12 +48,11 @@
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"rollup": "^2.77.0",
-		"rollup-plugin-import-css": "^3.0.3",
 		"rollup-plugin-peer-deps-external": "^2.2.4",
-		"rollup-plugin-stylus-css-modules": "^1.5.0",
+		"rollup-plugin-styles": "^4.0.0",
 		"rollup-plugin-terser": "^7.0.2",
+		"rollup-plugin-uglify": "^6.0.4",
 		"stylus": "^0.58.1",
-		"stylus-loader": "^7.0.0",
 		"typescript": "^4.7.4"
 	},
 	"eslintConfig": {
