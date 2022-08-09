@@ -12,17 +12,32 @@ yarn prettier   // Нормальзиция и форматирование ко
 ```
 
 ## Интеграция
-Для локальной отладки интеграции можно воспользоваться [npm-link](https://docs.npmjs.com/cli/v8/commands/npm-link),
-далее рекомендуется опубликовать проект в приватном npm.
-
-```jsx
-import React from "react";
-import { LessonSection, ViewCode } from "lesson-swiftbook";
-
-// ...
-```
+смотри файл index.html в корне
 
 ## Документация
+
+### Подсветка кода:
+По умолчанию может определить только язык Swift. Дополнительные языки нужно подключать в ручную.
+
+Открываем файл `src/ViewCode/utils.ts`. Ищим импорт swift языка и делаем так же:
+
+```js
+import swift from "highlight.js/lib/languages/swift";
+import java from "highlight.js/lib/languages/java";
+
+hljs.registerLanguage("swift", swift);
+hljs.registerLanguage("java", java);
+```
+
+Так же изменить стили подсветки можно подключив необходимые из доступных или создать кастомные.
+
+Открываем файл `src/ViewCode/ViewCode.tsx`.
+
+```js
+import "highlight.js/styles/github.css";
+```
+
+
 
 ### Пример использования:
 

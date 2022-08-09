@@ -2,10 +2,12 @@ import type { Change } from "diff";
 import type { MapMarkers, IndexesData } from "./types";
 
 import { diffLines } from "diff/lib/diff/line";
-// import hl from "highlight.js/lib/core";
-// import languageSwift from "highlight.js/lib/languages/swift";
+import hljs from "highlight.js/lib/core";
+import swift from "highlight.js/lib/languages/swift";
 
-// hl.registerLanguage("swift", languageSwift);
+// TODO зарегистрированные языки для подсветки кода:
+hljs.registerLanguage("swift", swift);
+
 
 export function searchMarkers(
 	nextValue: string,
@@ -56,7 +58,7 @@ export function searchMarkers(
 }
 
 export function lineNumbering(value: string): string[] {
-	const html = value; // hl.highlight(value, { language: "swift" }).value;
+	const html = hljs.highlightAuto(value).value;
 	const htmlLines = getLines(html);
 
 	if (!htmlLines) {
