@@ -8,7 +8,6 @@ import swift from "highlight.js/lib/languages/swift";
 // TODO зарегистрированные языки для подсветки кода:
 hljs.registerLanguage("swift", swift);
 
-
 export function searchMarkers(
 	nextValue: string,
 	prevValue?: string
