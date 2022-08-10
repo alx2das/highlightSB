@@ -34,7 +34,7 @@ const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 	);
 
 	return (
-		<section className="sb-lesson-steps">
+		<div className="sb-lesson-steps">
 			<div className="tutorial-steps">
 				{steps.map((_step, index) => (
 					<Fragment key={_step.title + index}>
@@ -83,7 +83,7 @@ const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 					step={step}
 				/>
 			)}
-		</section>
+		</div>
 	);
 };
 

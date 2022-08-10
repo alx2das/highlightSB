@@ -22,7 +22,7 @@ const LessonSection: FC<LessonSectionProps> = (props) => {
 
 	return (
 		<>
-			<section className="sb-lesson-section">
+			<div className="sb-lesson-section">
 				<div className="section-info">
 					<div className="inner-title">{title}</div>
 					<div className="inner-subtitle">{subtitle}</div>
@@ -40,7 +40,7 @@ const LessonSection: FC<LessonSectionProps> = (props) => {
 						sourceNode={sourceNode}
 					/>
 				</div>
-			</section>
+			</div>
 
 			{Boolean(steps?.length) && <LessonSectionSteps steps={steps} />}
 		</>
