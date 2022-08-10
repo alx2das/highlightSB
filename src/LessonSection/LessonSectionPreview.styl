@@ -13,8 +13,8 @@
 	+media(desktop)
 		position -webkit-sticky
 		position sticky
-		top 10px
-		height calc(100vh - 20px)
+		top var(--steps-preview-padding-top)
+		height calc(100vh - var(--steps-preview-padding-top) - var(--steps-preview-padding-bottom))
 
 	&._small
 		margin-top 40px
