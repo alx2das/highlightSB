@@ -210,8 +210,8 @@ export const section = {
 				"In ReminderListViewController+DataSource.swift, create a function named reminderStoreChanged() that has an empty Task.",
 			comment: undefined,
 
-			sourceUrl: undefined,
-			sourceType: undefined,
+			sourceUrl: "https://docs-assets.developer.apple.com/published/e0c9d4d6c1bf137d56eb95b43b9c175f/UIK_130-010-intro.png",
+			sourceType: "image",
 			sourceNode: undefined,
 
 			fileName: "SimpleCodeOne.swift",
