@@ -37,8 +37,6 @@ hljs.registerLanguage("java", java);
 import "highlight.js/styles/github.css";
 ```
 
-
-
 ### Пример использования:
 
 ```jsx
@@ -115,7 +113,7 @@ interface LessonSection {
 }
 ```
 
-### Посветка и сравнение кода `<ViewCode />`
+### Подсветка и сравнение кода `<ViewCode />`
 
 Поддерживает только SWIFT-код.
 
