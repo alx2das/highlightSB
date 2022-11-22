@@ -22,6 +22,8 @@ export interface LessonSectionPreviewProps {
     step?: Step;
     steps: Step[];
     minify?: boolean;
+    showPreview?: boolean;
+    onShowPreview?: () => void;
 }
 export declare type Step = {
     title: string;

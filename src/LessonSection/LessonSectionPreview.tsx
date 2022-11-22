@@ -10,7 +10,10 @@ import "./LessonSectionPreview.styl";
 const LessonSectionPreview: FC<LessonSectionPreviewProps> = (props) => {
 	const { step, steps, className, minify, showPreview, onShowPreview } = props;
 
-	const { prevStep, nextStep } = useMemo<{ nextStep?: Step, prevStep?: Step }>(() => {
+	const { prevStep, nextStep } = useMemo<{
+		nextStep?: Step;
+		prevStep?: Step;
+	}>(() => {
 		if (!step) {
 			return { nextStep: undefined, prevStep: undefined };
 		}
@@ -29,23 +32,31 @@ const LessonSectionPreview: FC<LessonSectionPreviewProps> = (props) => {
 		return { nextStep: step, prevStep: prevStep };
 	}, [steps, step]);
 
-
-	const isPreview = !!(nextStep?.sourceNode || nextStep?.sourceUrl || nextStep?.sourceType);
-	const preview = (Boolean(onShowPreview) ? showPreview : true) || !nextStep?.fileContent;
+	const isPreview = !!(
+		nextStep?.sourceNode ||
+		nextStep?.sourceUrl ||
+		nextStep?.sourceType
+	);
+	const preview =
+		(Boolean(onShowPreview) ? showPreview : true) || !nextStep?.fileContent;
 
 	return (
 		<div className={className}>
 			<div>
 				<div className="tutorial-steps-preview__name">
-					{nextStep?.fileName && (
-						<span>{nextStep.fileName}</span>
-					)}
+					{nextStep?.fileName && <span>{nextStep.fileName}</span>}
 
 					{nextStep?.fileContent && onShowPreview && (
 						<span
-							className={cn("preview_btn", { hide: !isPreview, open: !showPreview, close: showPreview })}
+							className={cn("preview_btn", {
+								hide: !isPreview,
+								open: !showPreview,
+								close: showPreview,
+							})}
 							onClick={onShowPreview}
-						>{isPreview ? "Превью" : "Нет превью"}</span>
+						>
+							{isPreview ? "Превью" : "Нет превью"}
+						</span>
 					)}
 				</div>
 			</div>
