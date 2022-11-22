@@ -11,6 +11,7 @@ import "./LessonSectionSteps.styl";
 
 const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 	const { steps } = props;
+	const [showPreview, setShowPreview] = useState<boolean>(false);
 	const [step, setStep] = useState<Step | undefined>(steps[0]);
 	const { isMobile, isTablet } = useResponsive();
 
@@ -81,6 +82,8 @@ const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 					className="tutorial-steps-preview"
 					steps={steps}
 					step={step}
+					showPreview={showPreview}
+					onShowPreview={() => setShowPreview(!showPreview)}
 				/>
 			)}
 		</div>

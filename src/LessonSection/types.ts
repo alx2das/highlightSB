@@ -31,6 +31,9 @@ export interface LessonSectionPreviewProps {
 	steps: Step[];
 
 	minify?: boolean;
+
+	showPreview?: boolean;
+	onShowPreview?: () => void;
 }
 
 export type Step = {

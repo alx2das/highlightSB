@@ -2,14 +2,15 @@ import type { FC } from "react";
 import type { LessonSectionPreviewProps, Step } from "./types";
 
 import React, { useMemo } from "react";
+import cn from "classnames";
 import LessonSectionSource from "./LessonSectionSource";
 import ViewCode from "../ViewCode/ViewCode";
 import "./LessonSectionPreview.styl";
 
 const LessonSectionPreview: FC<LessonSectionPreviewProps> = (props) => {
-	const { step, steps, className, minify } = props;
+	const { step, steps, className, minify, showPreview, onShowPreview } = props;
 
-	const { prevStep, nextStep } = useMemo(() => {
+	const { prevStep, nextStep } = useMemo<{ nextStep?: Step, prevStep?: Step }>(() => {
 		if (!step) {
 			return { nextStep: undefined, prevStep: undefined };
 		}
@@ -28,21 +29,37 @@ const LessonSectionPreview: FC<LessonSectionPreviewProps> = (props) => {
 		return { nextStep: step, prevStep: prevStep };
 	}, [steps, step]);
 
+
+	const isPreview = !!(nextStep?.sourceNode || nextStep?.sourceUrl || nextStep?.sourceType);
+	const preview = (Boolean(onShowPreview) ? showPreview : true) || !nextStep?.fileContent;
+
 	return (
 		<div className={className}>
-			<LessonSectionSource
-				alt={nextStep?.title || nextStep?.fileName || ""}
-				sourceNode={nextStep?.sourceNode}
-				sourceUrl={nextStep?.sourceUrl}
-				sourceType={nextStep?.sourceType}
-			/>
+			<div>
+				<div className="tutorial-steps-preview__name">
+					{nextStep?.fileName && (
+						<span>{nextStep.fileName}</span>
+					)}
+
+					{nextStep?.fileContent && onShowPreview && (
+						<span
+							className={cn("preview_btn", { hide: !isPreview, open: !showPreview, close: showPreview })}
+							onClick={onShowPreview}
+						>{isPreview ? "Превью" : "Нет превью"}</span>
+					)}
+				</div>
+			</div>
+
+			{preview && (
+				<LessonSectionSource
+					alt={nextStep?.title || nextStep?.fileName || ""}
+					sourceNode={nextStep?.sourceNode}
+					sourceUrl={nextStep?.sourceUrl}
+					sourceType={nextStep?.sourceType}
+				/>
+			)}
 
 			<div>
-				{nextStep?.fileName && (
-					<div className="tutorial-steps-preview__name">
-						{nextStep.fileName}
-					</div>
-				)}
 				{nextStep?.fileContent && (
 					<div className="tutorial-steps-preview__code">
 						<ViewCode
