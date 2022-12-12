@@ -17,11 +17,17 @@ export interface LessonSectionSourceProps {
 export interface LessonSectionStepsProps {
     steps: Step[];
 }
-export interface LessonSectionPreviewProps {
+export interface LessonSectionAssetProps {
     className?: string;
     step?: Step;
     steps: Step[];
     minify?: boolean;
+    showPreview?: boolean;
+    onShowPreview?: () => void;
+}
+export interface LessonSectionPreviewProps {
+    alt: string;
+    previewUrl?: string;
     showPreview?: boolean;
     onShowPreview?: () => void;
 }
@@ -32,6 +38,7 @@ export declare type Step = {
     sourceUrl?: string;
     sourceType?: string;
     sourceNode?: ReactNode;
+    previewUrl?: string;
     fileName?: string;
     fileContent?: string;
 };
