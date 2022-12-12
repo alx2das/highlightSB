@@ -18,7 +18,7 @@ const LessonSectionSource: FC<LessonSectionSourceProps> = (props) => {
 
 	if (sourceUrl && sourceType === "image") {
 		return (
-			<div className="tutorial-steps-preview__image">
+			<div className="tutorial-steps-asset__image">
 				<img src={sourceUrl} alt={alt} />
 			</div>
 		);
@@ -26,7 +26,7 @@ const LessonSectionSource: FC<LessonSectionSourceProps> = (props) => {
 
 	if (sourceUrl && sourceType === "video") {
 		return (
-			<div className="tutorial-steps-preview__video">
+			<div className="tutorial-steps-asset__video">
 				<video width="100%" height="auto" autoPlay muted playsInline>
 					<source src={sourceUrl} type="video/mp4" />
 				</video>

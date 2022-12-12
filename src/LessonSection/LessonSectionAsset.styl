@@ -3,7 +3,7 @@
 
 // STEPS PREVIEW CODE & IMAGE
 // -----------------------------------------------
-.tutorial-steps-preview
+.tutorial-steps-asset
 	grid-template-columns minmax(0, 1fr)
 	background #F2F4F5
 	border-radius 16px
@@ -23,8 +23,10 @@
 		border-radius 16px 0 0 16px
 
 
-.tutorial-steps-preview__name
-	margin 12px auto 28px 20px
+.tutorial-steps-asset__name
+	display: grid;
+	grid-template-columns: auto max-content;
+	margin 12px 20px 28px
 	line-height 22px
 	overflow hidden
 	text-overflow ellipsis
@@ -64,19 +66,84 @@
 		background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIiA/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZlcnNpb249IjEuMSIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8ZGVzYz5DcmVhdGVkIHdpdGggRmFicmljLmpzIDQuNi4wPC9kZXNjPgo8ZGVmcz4KPC9kZWZzPgo8ZyB0cmFuc2Zvcm09Im1hdHJpeCgtMSAwIDAgLTEgOC41IDcuNSkiIGlkPSJiSnloN0Rxa2ZCY2Y4SGZEYVB0akEiICA+CjxwYXRoIHN0eWxlPSJzdHJva2U6IHJnYigzMiw5MywyMTIpOyBzdHJva2Utd2lkdGg6IDI7IHN0cm9rZS1kYXNoYXJyYXk6IG5vbmU7IHN0cm9rZS1saW5lY2FwOiByb3VuZDsgc3Ryb2tlLWRhc2hvZmZzZXQ6IDA7IHN0cm9rZS1saW5lam9pbjogcm91bmQ7IHN0cm9rZS1taXRlcmxpbWl0OiA0OyBmaWxsOiBub25lOyBmaWxsLXJ1bGU6IG5vbnplcm87IG9wYWNpdHk6IDE7IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiICB0cmFuc2Zvcm09IiB0cmFuc2xhdGUoLTguNSwgLTcuNSkiIGQ9Ik0gMTMgMyBMIDQgMTIgTSA0IDEyIEwgMTIgMTIgTSA0IDEyIEwgNCA0IiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+CjwvZz4KPC9zdmc+')
 
 
-.tutorial-steps-preview__image
-	margin 50px 0
+.tutorial-steps-asset__image
+	margin 20px 0
 	text-align center
 
 	+media(mobile tablet)
-		margin 50px auto 0
+		margin 20px auto 0
 
 	img
 		max-width 100%
 
 
-.tutorial-steps-preview__video
+.tutorial-steps-asset__video
 	display flex
 
 	video
 		margin auto
+
+
+.tutorial-steps-preview__button
+	cursor pointer
+	font-weight 700
+	line-height 24px
+	color #205DD4
+
+	&:before
+		content ""
+		position: relative;
+		display: inline-block;
+		top: 4px;
+		width 16px
+		height 16px
+		margin 0 10px
+
+	&.open:before
+		background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIiA/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZlcnNpb249IjEuMSIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8ZGVzYz5DcmVhdGVkIHdpdGggRmFicmljLmpzIDQuNi4wPC9kZXNjPgo8ZGVmcz4KPC9kZWZzPgo8ZyB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAxIDguNSA3LjUpIiBpZD0iYkp5aDdEcWtmQmNmOEhmRGFQdGpBIiAgPgo8cGF0aCBzdHlsZT0ic3Ryb2tlOiByZ2IoMzIsOTMsMjEyKTsgc3Ryb2tlLXdpZHRoOiAyOyBzdHJva2UtZGFzaGFycmF5OiBub25lOyBzdHJva2UtbGluZWNhcDogcm91bmQ7IHN0cm9rZS1kYXNob2Zmc2V0OiAwOyBzdHJva2UtbGluZWpvaW46IHJvdW5kOyBzdHJva2UtbWl0ZXJsaW1pdDogNDsgZmlsbDogbm9uZTsgZmlsbC1ydWxlOiBub256ZXJvOyBvcGFjaXR5OiAxOyIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiAgdHJhbnNmb3JtPSIgdHJhbnNsYXRlKC04LjUsIC03LjUpIiBkPSJNIDEzIDMgTCA0IDEyIE0gNCAxMiBMIDEyIDEyIE0gNCAxMiBMIDQgNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiAvPgo8L2c+Cjwvc3ZnPg==')
+
+	&.close:before
+		background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIiA/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZlcnNpb249IjEuMSIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8ZGVzYz5DcmVhdGVkIHdpdGggRmFicmljLmpzIDQuNi4wPC9kZXNjPgo8ZGVmcz4KPC9kZWZzPgo8ZyB0cmFuc2Zvcm09Im1hdHJpeCgtMSAwIDAgLTEgOC41IDcuNSkiIGlkPSJiSnloN0Rxa2ZCY2Y4SGZEYVB0akEiICA+CjxwYXRoIHN0eWxlPSJzdHJva2U6IHJnYigzMiw5MywyMTIpOyBzdHJva2Utd2lkdGg6IDI7IHN0cm9rZS1kYXNoYXJyYXk6IG5vbmU7IHN0cm9rZS1saW5lY2FwOiByb3VuZDsgc3Ryb2tlLWRhc2hvZmZzZXQ6IDA7IHN0cm9rZS1saW5lam9pbjogcm91bmQ7IHN0cm9rZS1taXRlcmxpbWl0OiA0OyBmaWxsOiBub25lOyBmaWxsLXJ1bGU6IG5vbnplcm87IG9wYWNpdHk6IDE7IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiICB0cmFuc2Zvcm09IiB0cmFuc2xhdGUoLTguNSwgLTcuNSkiIGQ9Ik0gMTMgMyBMIDQgMTIgTSA0IDEyIEwgMTIgMTIgTSA0IDEyIEwgNCA0IiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+CjwvZz4KPC9zdmc+')
+
+	&.hide
+		cursor default
+		color #c8d1d7 !important
+
+		&:before
+			display none
+
+.tutorial-steps-preview__content
+	position absolute
+	z-index 9999
+	top 35px
+	right 15px
+	visibility hidden
+	max-height: 0;
+	transition: max-height 0.3s ease-out;
+	overflow: hidden;
+
+	.preview__content-asset
+		width 300px
+		border-radius 20px
+		margin 10px 5px 5px 5px
+		border 3px solid #000000
+		box-shadow 0 0 5px #000000
+		overflow hidden
+
+		.preview__content-asset__img
+			display: inherit;
+			width 100%
+
+	&.show
+		visibility visible
+		max-height: 700px;
+
+	&.responsive
+		position relative
+		top auto
+		right auto
+
+		.preview__content-asset
+			margin 0 auto
+
+

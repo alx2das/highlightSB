@@ -4,7 +4,7 @@ import type { LessonSectionStepsProps, Step } from "./types";
 import React, { useState, useCallback, Fragment } from "react";
 import cn from "classnames";
 import { Waypoint } from "react-waypoint";
-import LessonSectionPreview from "./LessonSectionPreview";
+import LessonSectionAsset from "./LessonSectionAsset";
 import useResponsive from "../Responsive";
 
 import "./LessonSectionSteps.styl";
@@ -41,7 +41,8 @@ const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 					<Fragment key={_step.title + index}>
 						<div
 							className={cn("tutorial-steps__item", {
-								_active: step?.title === _step.title || isResponsive,
+								_active:
+									step?.title === _step.title || isResponsive,
 							})}
 						>
 							{!isResponsive && (
@@ -53,23 +54,34 @@ const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 								/>
 							)}
 
-							<div className="inner-block" onClick={(e) => handleSelect(e)}>
+							<div
+								className="inner-block"
+								onClick={(e) => handleSelect(e)}
+							>
 								<div className="inner-title">{_step.title}</div>
 								{_step.description && (
-									<div className="inner-description">{_step.description}</div>
+									<div className="inner-description">
+										{_step.description}
+									</div>
 								)}
 							</div>
 
 							{_step.comment && (
-								<div className="inner-comment">{_step.comment}</div>
+								<div className="inner-comment">
+									{_step.comment}
+								</div>
 							)}
 
 							{isResponsive && (
-								<LessonSectionPreview
-									className="tutorial-steps-preview _small"
+								<LessonSectionAsset
+									className="tutorial-steps-asset _small"
 									steps={steps}
 									step={_step}
 									minify
+									showPreview={showPreview}
+									onShowPreview={() =>
+										setShowPreview(!showPreview)
+									}
 								/>
 							)}
 						</div>
@@ -78,8 +90,8 @@ const LessonSectionSteps: FC<LessonSectionStepsProps> = (props) => {
 			</div>
 
 			{!isResponsive && (
-				<LessonSectionPreview
-					className="tutorial-steps-preview"
+				<LessonSectionAsset
+					className="tutorial-steps-asset"
 					steps={steps}
 					step={step}
 					showPreview={showPreview}

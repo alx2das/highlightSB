@@ -213,6 +213,7 @@ export const section = {
 			sourceUrl: "https://docs-assets.developer.apple.com/published/e0c9d4d6c1bf137d56eb95b43b9c175f/UIK_130-010-intro.png",
 			sourceType: "image",
 			sourceNode: undefined,
+			previewUrl: "https://docs-assets.developer.apple.com/published/d900e4766e45a563e0c6da12374cbc2f/SUI_010-020-060-preview.png",
 
 			fileName: "SimpleCodeOne.swift",
 			fileContent: SimpleCodeOne,
@@ -238,6 +239,7 @@ export const section = {
 				"https://docs-assets.developer.apple.com/published/e0c9d4d6c1bf137d56eb95b43b9c175f/UIK_130-010-intro.png",
 			sourceType: "image",
 			sourceNode: undefined,
+			previewUrl: "https://docs-assets.developer.apple.com/published/98c82f11116fc0b33acf963c41d1ca42/SUI_010-020-100-preview.png",
 
 			fileName: "SimpleCodeOne.swift",
 			fileContent: SimpleCodeThree,
